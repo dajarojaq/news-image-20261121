@@ -190,66 +190,63 @@ const LEAD_CARDS = [
   },
   {
     id: 3,
-    reg: 'AM',
-    kicker: 'MARKETS · CRYPTO',
-    headline: 'Bitcoin plunges below $59,000 in tech sell-off',
-    deck: 'Largest cryptocurrency hits lowest level since July as AI and tech-stock jitters rattle digital assets.',
-    source: 'Reuters',
+    reg: 'EU',
+    kicker: 'WARSAW · BALTIC',
+    headline: 'Rutte pledges Polish defense as drones hit ship',
+    deck: 'NATO chief vows to defend "every inch" in Warsaw; drones cripple Russian cargo ship Sparta II.',
+    source: 'NATO, Yle',
     svg: `<svg viewBox="0 0 324 130" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="display:block" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="btcTerm" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#0E1729"/>
-          <stop offset="100%" stop-color="#1A1320"/>
-        </linearGradient>
-        <linearGradient id="btcDrop" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#EF4444" stop-opacity="0.45"/>
-          <stop offset="100%" stop-color="#EF4444" stop-opacity="0.02"/>
-        </linearGradient>
-      </defs>
-      <rect width="324" height="130" fill="url(#btcTerm)"/>
-      <!-- Crisp terminal grid -->
-      <g stroke="#293548" stroke-width="0.7">
-        <line x1="0" y1="30" x2="324" y2="30"/><line x1="0" y1="56" x2="324" y2="56"/>
-        <line x1="0" y1="82" x2="324" y2="82"/><line x1="0" y1="108" x2="324" y2="108"/>
-        <line x1="65" y1="0" x2="65" y2="130"/><line x1="130" y1="0" x2="130" y2="130"/>
-        <line x1="195" y1="0" x2="195" y2="130"/><line x1="260" y1="0" x2="260" y2="130"/>
+      <!-- Baltic Sea / Gulf of Finland -->
+      <rect width="324" height="130" fill="#6EA2CF"/>
+      <path d="M180,30 Q190,26 200,30 T220,30 M256,22 Q266,18 276,22 M195,97 Q208,93 221,97 T247,97 M270,93 Q282,89 294,93" fill="none" stroke="#B7D7F0" stroke-width="1.4" stroke-linecap="round"/>
+      <!-- Poland landmass left -->
+      <path d="M0,0 L166,0 L166,46 C158,64 162,88 152,130 L0,130 Z" fill="#EAE1CD" stroke="#6E6554" stroke-width="1.6"/>
+      <line x1="146" y1="53" x2="138" y2="112" stroke="#C41E1A" stroke-width="2" stroke-dasharray="5 3"/>
+      <!-- Warsaw Palace spire silhouette -->
+      <g fill="#B8AF9B" stroke="#6E6554" stroke-width="1">
+        <rect x="20" y="90" width="32" height="22"/>
+        <rect x="28" y="78" width="16" height="12"/>
+        <polygon points="33,78 36,62 39,78"/>
       </g>
-      <!-- Price axis right -->
-      <text x="318" y="28" text-anchor="end" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.5" font-weight="700" fill="#94A3B8">$62K</text>
-      <text x="318" y="54" text-anchor="end" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.5" font-weight="700" fill="#94A3B8">$60K</text>
-      <text x="318" y="106" text-anchor="end" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.5" font-weight="700" fill="#FCA5A5">$56K</text>
-      <!-- $59,000 psychological threshold line -->
-      <line x1="0" y1="73" x2="324" y2="73" stroke="#FACC15" stroke-width="1.3" stroke-dasharray="5 3"/>
-      <rect x="242" y="61" width="76" height="12" rx="1.5" fill="#FACC15"/>
-      <text x="280" y="70" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8" font-weight="800" fill="#111827">$59K FLOOR</text>
-      <!-- Red area fill + sharp downward price line breaking $59K -->
-      <polygon points="10,60 44,58 76,63 110,55 144,61 172,70 198,84 226,95 250,91 278,104 278,130 10,130" fill="url(#btcDrop)"/>
-      <!-- Subtle red/green candlesticks along trajectory -->
-      <g stroke-width="1.2">
-        <line x1="144" y1="55" x2="144" y2="67" stroke="#EF4444"/><rect x="141" y="57" width="6" height="7" fill="#EF4444"/>
-        <line x1="172" y1="62" x2="172" y2="77" stroke="#EF4444"/><rect x="169" y="65" width="6" height="9" fill="#EF4444"/>
-        <line x1="198" y1="74" x2="198" y2="92" stroke="#EF4444"/><rect x="195" y="77" width="6" height="12" fill="#EF4444"/>
-        <line x1="226" y1="84" x2="226" y2="102" stroke="#EF4444"/><rect x="223" y="88" width="6" height="10" fill="#EF4444"/>
+      <!-- Bold NATO Shield protecting Warsaw -->
+      <g transform="translate(78,84)">
+        <path d="M-16,-20 L16,-20 L16,0 C16,13 0,21 0,21 C0,21 -16,13 -16,0 Z" fill="${REGIONS.EU.color}" stroke="#FFFFFF" stroke-width="2.2"/>
+        <path d="M-16,-20 L16,-20 L16,0 C16,13 0,21 0,21 C0,21 -16,13 -16,0 Z" fill="none" stroke="#111827" stroke-width="1"/>
+        <polygon points="0,-13 3,-3 12,0 3,3 0,13 -3,3 -12,0 -3,-3" fill="#FFFFFF"/>
       </g>
-      <polyline points="10,60 44,58 76,63 110,55 144,61 172,70 198,84 226,95 250,91 278,104" fill="none" stroke="#FF4D4F" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/>
-      <!-- Glowing drop endpoint -->
-      <circle cx="278" cy="104" r="5" fill="#FF4D4F" stroke="#FFFFFF" stroke-width="1.6"/>
-      <!-- Iconic Gold Bitcoin Coin Emblem top-right -->
-      <g transform="translate(274,31)">
-        <circle cx="0" cy="0" r="20" fill="#F59E0B" stroke="#FEF08A" stroke-width="1.8"/>
-        <circle cx="0" cy="0" r="16" fill="none" stroke="#B45309" stroke-width="1.1"/>
-        <text x="0" y="8" text-anchor="middle" font-family="Georgia,'IBM Plex Sans',serif" font-size="22" font-weight="900" fill="#FFFFFF">₿</text>
+      <path d="M158,84 Q130,70 106,80" fill="none" stroke="#C41E1A" stroke-width="2.2" stroke-dasharray="4 2.5"/>
+      <polygon points="103,80 110,74 108,80 114,83 107,85 104,90 102,84 96,82" fill="#F59E0B" stroke="#C41E1A" stroke-width="0.9"/>
+      <!-- Detailed Burning Cargo Ship Sparta II on Baltic -->
+      <g transform="translate(240,67)">
+        <ellipse cx="0" cy="18" rx="58" ry="4" fill="#3D6D99" opacity="0.6"/>
+        <polygon points="-50,4 54,4 46,16 -44,16" fill="#1E293B" stroke="#111827" stroke-width="1.6"/>
+        <polygon points="-46,12 48,12 46,16 -44,16" fill="#C41E1A"/>
+        <rect x="-34" y="-4" width="24" height="8" fill="#475569" stroke="#111827" stroke-width="1.2"/>
+        <rect x="-6" y="-5" width="22" height="9" fill="#64748B" stroke="#111827" stroke-width="1.2"/>
+        <line x1="-22" y1="-4" x2="-12" y2="-20" stroke="#111827" stroke-width="1.8"/>
+        <line x1="6" y1="-5" x2="18" y2="-20" stroke="#111827" stroke-width="1.8"/>
+        <rect x="24" y="-14" width="18" height="18" fill="#F1F5F9" stroke="#111827" stroke-width="1.4"/>
+        <rect x="27" y="-10" width="12" height="4" fill="#1E293B"/>
+        <circle cx="-12" cy="-22" r="10" fill="#4B5563" opacity="0.85"/>
+        <circle cx="-2" cy="-32" r="13" fill="#6B7280" opacity="0.72"/>
+        <circle cx="12" cy="-40" r="11" fill="#9CA3AF" opacity="0.55"/>
+        <polygon points="-24,3 -14,-16 -6,-4 0,-18 8,3" fill="#DC2626"/>
+        <polygon points="-19,3 -12,-9 -6,0 0,-10 4,3" fill="#FACC15"/>
+        <path d="M36,24 Q48,20 58,24 L54,29 L40,29 Z" fill="#F97316" stroke="#111827" stroke-width="1.2"/>
       </g>
-      <!-- Downward red arrow badge next to coin -->
-      <polygon points="222,22 238,22 230,36" fill="#EF4444" stroke="#FFFFFF" stroke-width="1"/>
-      <!-- Uniform Top Banner (Americas = Merah) -->
-      <rect x="6" y="6" width="184" height="27" fill="${REGIONS.AM.color}" stroke="#FFFFFF" stroke-width="1.6"/>
-      <text x="98" y="25.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="18.2" font-weight="800" fill="#FFFFFF" letter-spacing="0.2">BITCOIN &lt;$59K</text>
-      <rect x="6" y="37" width="164" height="18" fill="#FFFFFF" stroke="#111827" stroke-width="1.2"/>
-      <text x="88" y="49.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="11" font-weight="700" fill="#111827">4-month low · tech slump</text>
+      <g fill="#111827" stroke="#FFFFFF" stroke-width="0.7">
+        <polygon points="186,21 202,28 190,32 192,27"/>
+        <polygon points="210,11 224,19 213,22 215,17"/>
+      </g>
+      <text x="240" y="108" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="9.2" font-weight="800" fill="#0B1F38">SPARTA II · CREW EVACUATED</text>
+      <!-- Uniform Top Banner (Europe = Biru) -->
+      <rect x="6" y="6" width="168" height="27" fill="${REGIONS.EU.color}" stroke="#FFFFFF" stroke-width="1.6"/>
+      <text x="90" y="25.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="18" font-weight="800" fill="#FFFFFF" letter-spacing="0.2">NATO · BALTIC</text>
+      <rect x="6" y="37" width="144" height="18" fill="#FFFFFF" stroke="#111827" stroke-width="1.2"/>
+      <text x="78" y="49.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="11" font-weight="700" fill="#111827">"Every inch" · ship hit</text>
       <!-- Uniform Bottom-Left Source Ribbon -->
-      <rect x="0" y="112" width="142" height="18" fill="#0B1120"/>
-      <text x="71" y="124.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="9.5" font-weight="700" fill="#FFFFFF">Confirmed · Market Data</text>
+      <rect x="0" y="112" width="142" height="18" fill="#111827"/>
+      <text x="71" y="124.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="9.5" font-weight="700" fill="#FFFFFF">Confirmed · NATO, Yle</text>
     </svg>`,
   },
 ];
@@ -258,52 +255,6 @@ const LEAD_CARDS = [
 const MID_CARDS = [
   {
     id: 4,
-    reg: 'EU',
-    kicker: 'WARSAW · BALTIC',
-    headline: 'Rutte pledges Polish defense as drones hit ship',
-    deck: 'NATO chief vows "every inch"; drones cripple Russia\'s Sparta II.',
-    source: 'NATO, Yle',
-    svg: `<svg viewBox="0 0 192 76" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="display:block" xmlns="http://www.w3.org/2000/svg">
-      <!-- Baltic Sea right + Poland coast left -->
-      <rect width="192" height="76" fill="#6EA2CF"/>
-      <path d="M98,64 Q108,61 118,64 T138,64 M150,62 Q160,59 170,62" fill="none" stroke="#B7D7F0" stroke-width="1.2"/>
-      <path d="M0,0 L80,0 L80,32 C76,46 78,60 72,76 L0,76 Z" fill="#EAE1CD" stroke="#6E6554" stroke-width="1.3"/>
-      <!-- Bold NATO Shield left -->
-      <g transform="translate(38,44)">
-        <path d="M-12,-14 L12,-14 L12,0 C12,9 0,15 0,15 C0,15 -12,9 -12,0 Z" fill="${REGIONS.EU.color}" stroke="#FFFFFF" stroke-width="1.8"/>
-        <polygon points="0,-9 2.2,-2.2 8.5,0 2.2,2.2 0,9 -2.2,2.2 -8.5,0 -2.2,-2.2" fill="#FFFFFF"/>
-      </g>
-      <!-- Deflected missile arc -->
-      <path d="M84,46 Q68,38 54,44" fill="none" stroke="#C41E1A" stroke-width="1.6" stroke-dasharray="3 2"/>
-      <circle cx="53" cy="44" r="3" fill="#F59E0B" stroke="#C41E1A" stroke-width="0.8"/>
-      <!-- Burning Russian Cargo Ship Sparta II right -->
-      <g transform="translate(136,48)">
-        <polygon points="-38,3 42,3 35,12 -33,12" fill="#1E293B" stroke="#111827" stroke-width="1.2"/>
-        <polygon points="-35,9 37,9 35,12 -33,12" fill="#C41E1A"/>
-        <rect x="-24" y="-3" width="18" height="6" fill="#475569" stroke="#111827" stroke-width="1"/>
-        <rect x="-2" y="-4" width="16" height="7" fill="#64748B" stroke="#111827" stroke-width="1"/>
-        <rect x="18" y="-11" width="14" height="14" fill="#F1F5F9" stroke="#111827" stroke-width="1.1"/>
-        <rect x="20" y="-8" width="10" height="3.5" fill="#1E293B"/>
-        <!-- Smoke & fireball -->
-        <circle cx="-8" cy="-16" r="7" fill="#4B5563" opacity="0.85"/>
-        <circle cx="2" cy="-24" r="8.5" fill="#6B7280" opacity="0.68"/>
-        <polygon points="-18,2 -10,-12 -4,-3 1,-13 7,2" fill="#DC2626"/>
-        <polygon points="-14,2 -9,-7 -4,0 0,-7 4,2" fill="#FACC15"/>
-        <!-- Orange lifeboat -->
-        <path d="M26,17 Q34,14 42,17 L39,21 L29,21 Z" fill="#F97316" stroke="#111827" stroke-width="1"/>
-      </g>
-      <!-- Attacking delta drone -->
-      <polygon points="104,24 118,29 107,32 109,28" fill="#111827" stroke="#FFFFFF" stroke-width="0.6"/>
-      <!-- Uniform Top Banner (Europe = Biru) -->
-      <rect x="6" y="6" width="126" height="20" fill="${REGIONS.EU.color}" stroke="#FFFFFF" stroke-width="1.3"/>
-      <text x="69" y="20.2" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="13.4" font-weight="800" fill="#FFFFFF">NATO · BALTIC</text>
-      <!-- Uniform Bottom-Left Source Ribbon -->
-      <rect x="0" y="62" width="100" height="14" fill="#111827"/>
-      <text x="50" y="72" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.4" font-weight="700" fill="#FFFFFF">Confirmed · NATO</text>
-    </svg>`,
-  },
-  {
-    id: 5,
     reg: 'ME',
     kicker: 'RIYADH · JIZAN',
     headline: 'Five Houthi missiles downed over Saudi Arabia',
@@ -348,7 +299,7 @@ const MID_CARDS = [
     </svg>`,
   },
   {
-    id: 6,
+    id: 5,
     reg: 'AS',
     kicker: 'INDONESIA · EU',
     headline: 'Indonesia and EU sign landmark trade pact',
@@ -390,7 +341,7 @@ const MID_CARDS = [
     </svg>`,
   },
   {
-    id: 7,
+    id: 6,
     reg: 'AM',
     kicker: 'JUNÍN · PERU',
     headline: 'M6.7 quake shakes central Peru and Lima',
@@ -420,6 +371,50 @@ const MID_CARDS = [
       <!-- Uniform Bottom-Left Source Ribbon -->
       <rect x="0" y="62" width="94" height="14" fill="#111827"/>
       <text x="47" y="72" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.4" font-weight="700" fill="#FFFFFF">USGS · 00:09 UTC</text>
+    </svg>`,
+  },
+  {
+    id: 7,
+    reg: 'AM',
+    kicker: 'MARKETS · CRYPTO',
+    headline: 'Bitcoin plunges below $59,000 in tech sell-off',
+    deck: 'Hits lowest since July as AI-stock slump rattles crypto.',
+    source: 'Reuters',
+    svg: `<svg viewBox="0 0 192 76" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="display:block" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="btcMidBg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0E1729"/>
+          <stop offset="100%" stop-color="#1B121D"/>
+        </linearGradient>
+        <linearGradient id="btcMidDrop" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#EF4444" stop-opacity="0.45"/>
+          <stop offset="100%" stop-color="#EF4444" stop-opacity="0.03"/>
+        </linearGradient>
+      </defs>
+      <rect width="192" height="76" fill="url(#btcMidBg)"/>
+      <g stroke="#293548" stroke-width="0.6">
+        <line x1="0" y1="35" x2="192" y2="35"/><line x1="0" y1="53" x2="192" y2="53"/>
+        <line x1="48" y1="26" x2="48" y2="76"/><line x1="96" y1="26" x2="96" y2="76"/><line x1="144" y1="26" x2="144" y2="76"/>
+      </g>
+      <!-- Yellow $59K support floor line -->
+      <line x1="0" y1="45" x2="192" y2="45" stroke="#FACC15" stroke-width="1.1" stroke-dasharray="4 2.5"/>
+      <rect x="138" y="34" width="49" height="10" rx="1.5" fill="#FACC15"/>
+      <text x="162.5" y="41.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="7.2" font-weight="800" fill="#111827">$59K LINE</text>
+      <!-- Plunging red trend + area -->
+      <polygon points="8,36 32,35 56,39 80,33 104,42 126,53 150,59 172,66 172,76 8,76" fill="url(#btcMidDrop)"/>
+      <polyline points="8,36 32,35 56,39 80,33 104,42 126,53 150,59 172,66" fill="none" stroke="#FF4D4F" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="172" cy="66" r="3.6" fill="#FF4D4F" stroke="#FFFFFF" stroke-width="1.2"/>
+      <!-- Crisp Gold Bitcoin Emblem top-right -->
+      <g transform="translate(172,17)">
+        <circle cx="0" cy="0" r="12" fill="#F59E0B" stroke="#FEF08A" stroke-width="1.3"/>
+        <text x="0" y="5" text-anchor="middle" font-family="Georgia,'IBM Plex Sans',serif" font-size="14" font-weight="900" fill="#FFFFFF">₿</text>
+      </g>
+      <!-- Uniform Top Banner (Americas = Merah) -->
+      <rect x="6" y="6" width="134" height="20" fill="${REGIONS.AM.color}" stroke="#FFFFFF" stroke-width="1.3"/>
+      <text x="73" y="20.2" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="13.4" font-weight="800" fill="#FFFFFF">BITCOIN &lt;$59K</text>
+      <!-- Uniform Bottom-Left Source Ribbon -->
+      <rect x="0" y="62" width="102" height="14" fill="#090F1C"/>
+      <text x="51" y="72" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.4" font-weight="700" fill="#FFFFFF">Confirmed · Markets</text>
     </svg>`,
   },
   {
@@ -815,31 +810,72 @@ const INLAND_SEAS = [
   [[47, 46], [52, 46], [54, 42], [53, 37], [49, 37], [48, 41]],
 ];
 
+// All 34 Earth-plotted stories + #2 Mercury inset = complete 35/35 coverage
 const MAP_PINS = [
-  { id: 30, reg: 'AM', pos: lonLatToXY(-116, 38) },  // Las Vegas F1
-  { id: 3, reg: 'AM', pos: lonLatToXY(-73, 44) },    // New York / Global Crypto Markets
-  { id: 8, reg: 'AM', pos: lonLatToXY(-84, 34) },    // Washington DC / FBI NCIC
-  { id: 9, reg: 'AM', pos: lonLatToXY(-107, 23) },   // Sinaloa
-  { id: 7, reg: 'AM', pos: lonLatToXY(-75, -12) },   // Peru
-  { id: 31, reg: 'AM', pos: lonLatToXY(-48, -22) },  // Brazil
-  { id: 11, reg: 'EU', pos: lonLatToXY(2, 48) },     // Paris / Europe
-  { id: 4, reg: 'EU', pos: lonLatToXY(19, 56) },     // Warsaw / Baltic
-  { id: 14, reg: 'EU', pos: lonLatToXY(36, 49) },    // Kryvyi Rih / Ukraine
-  { id: 1, reg: 'ME', pos: lonLatToXY(31, 36) },     // Antalya
-  { id: 12, reg: 'AF', pos: lonLatToXY(30, 21) },    // Aswan
-  { id: 32, reg: 'AF', pos: lonLatToXY(40, 7) },     // Addis Ababa / Somalia
-  { id: 5, reg: 'ME', pos: lonLatToXY(49, 25) },     // Riyadh / Jizan
-  { id: 27, reg: 'AS', pos: lonLatToXY(76, 20) },    // India
-  { id: 25, reg: 'AS', pos: lonLatToXY(93, 25) },    // Dhaka
-  { id: 26, reg: 'AS', pos: lonLatToXY(137, 36) },   // Japan
-  { id: 6, reg: 'AS', pos: lonLatToXY(106, -6) },    // Indonesia (Jakarta)
-  { id: 10, reg: 'AS', pos: lonLatToXY(126, 9) },    // Davao
-  { id: 24, reg: 'AS', pos: lonLatToXY(132, -8) },   // Banda Sea
-  { id: 34, reg: 'OC', pos: lonLatToXY(145, -36) },  // Melbourne
-  { id: 13, reg: 'OC', pos: lonLatToXY(171, -42) },  // New Zealand / Rugby
+  // Space (#35 Dragon Pacific splashdown off California; #2 Mercury sits in Space inset)
+  { id: 35, reg: 'SP', pos: lonLatToXY(-136, 26) },
+  // Americas (7: #6, #7, #8, #9, #29, #30, #31)
+  { id: 30, reg: 'AM', pos: lonLatToXY(-121, 45) },  // Las Vegas F1
+  { id: 29, reg: 'AM', pos: lonLatToXY(-99, 43) },   // US Trump AI data tax
+  { id: 7, reg: 'AM', pos: lonLatToXY(-68, 46) },    // Bitcoin / Global Crypto Markets (NYC)
+  { id: 8, reg: 'AM', pos: lonLatToXY(-81, 32) },    // Washington DC / FBI NCIC Breach
+  { id: 9, reg: 'AM', pos: lonLatToXY(-107, 20) },   // Sinaloa, Mexico
+  { id: 6, reg: 'AM', pos: lonLatToXY(-77, -11) },   // Peru M6.7 Quake
+  { id: 31, reg: 'AM', pos: lonLatToXY(-48, -22) },  // Brazil BJK Cup
+  // Europe (8: #3, #11, #14, #15, #16, #17, #18, #19)
+  { id: 11, reg: 'EU', pos: lonLatToXY(-6, 48) },    // Paris / Western Europe marches
+  { id: 16, reg: 'EU', pos: lonLatToXY(7, 61) },     // Copenhagen, Denmark
+  { id: 18, reg: 'EU', pos: lonLatToXY(25, 68) },    // Finland / Baltic airspace
+  { id: 3, reg: 'EU', pos: lonLatToXY(19, 54) },     // Warsaw / Baltic (Sparta II)
+  { id: 17, reg: 'EU', pos: lonLatToXY(6, 44) },     // Geneva UN "killer robots"
+  { id: 19, reg: 'EU', pos: lonLatToXY(14, 36) },    // Turin ATP Finals
+  { id: 15, reg: 'EU', pos: lonLatToXY(35, 58) },    // Kyiv
+  { id: 14, reg: 'EU', pos: lonLatToXY(41, 47) },    // Kryvyi Rih
+  // Middle East (6: #1, #4, #20, #21, #22, #23)
+  { id: 1, reg: 'ME', pos: lonLatToXY(28, 39) },     // Antalya COP31
+  { id: 22, reg: 'ME', pos: lonLatToXY(32, 28) },    // Gaza
+  { id: 23, reg: 'ME', pos: lonLatToXY(47, 36) },    // Basra, Iraq
+  { id: 4, reg: 'ME', pos: lonLatToXY(44, 21) },     // Riyadh & Jizan, Saudi
+  { id: 20, reg: 'ME', pos: lonLatToXY(56, 29) },    // Bahrain
+  { id: 21, reg: 'ME', pos: lonLatToXY(63, 19) },    // Strait of Hormuz
+  // Africa (3: #12, #32, #33)
+  { id: 12, reg: 'AF', pos: lonLatToXY(21, 21) },    // Aswan Forum, Egypt
+  { id: 32, reg: 'AF', pos: lonLatToXY(34, 8) },     // Addis Ababa, Ethiopia
+  { id: 33, reg: 'AF', pos: lonLatToXY(48, 3) },     // Somalia vaccine hub
+  // Asia (7: #5, #10, #24, #25, #26, #27, #28)
+  { id: 27, reg: 'AS', pos: lonLatToXY(77, 22) },    // India IIT Kharagpur
+  { id: 25, reg: 'AS', pos: lonLatToXY(92, 27) },    // Dhaka, Bangladesh
+  { id: 28, reg: 'AS', pos: lonLatToXY(112, 28) },   // China–Singapore FTA 4.0
+  { id: 26, reg: 'AS', pos: lonLatToXY(141, 38) },   // Japan–Saudi oil deal
+  { id: 5, reg: 'AS', pos: lonLatToXY(104, -7) },    // Indonesia–EU CEPA (Jakarta)
+  { id: 10, reg: 'AS', pos: lonLatToXY(126, 9) },    // Davao, Philippines
+  { id: 24, reg: 'AS', pos: lonLatToXY(134, -8) },   // Banda Sea M6.8
+  // Oceania (2: #13, #34)
+  { id: 34, reg: 'OC', pos: lonLatToXY(145, -36) },  // Melbourne T20I
+  { id: 13, reg: 'OC', pos: lonLatToXY(172, -42) },  // New Zealand / Rugby
 ];
 
 function buildWorldMapSVG() {
+  // Verify exact 35/35 story pin completeness (34 map pins + #2 Mercury inset)
+  const plotted = new Set([2, ...MAP_PINS.map((p) => p.id)]);
+  if (plotted.size !== 35) {
+    throw new Error(`Expected 35 unique plotted stories on map, got ${plotted.size}`);
+  }
+  let minDist = Infinity;
+  let closestPair = '';
+  for (let i = 0; i < MAP_PINS.length; i++) {
+    for (let j = i + 1; j < MAP_PINS.length; j++) {
+      const dx = parseFloat(MAP_PINS[i].pos[0]) - parseFloat(MAP_PINS[j].pos[0]);
+      const dy = parseFloat(MAP_PINS[i].pos[1]) - parseFloat(MAP_PINS[j].pos[1]);
+      const d = Math.hypot(dx, dy);
+      if (d < minDist) {
+        minDist = d;
+        closestPair = `#${MAP_PINS[i].id}-#${MAP_PINS[j].id}`;
+      }
+    }
+  }
+  console.log(`Map verified: ${plotted.size}/35 stories plotted (min pin distance ${minDist.toFixed(1)}px for ${closestPair})`);
+
   const landSvg = WORLD_LANDMASSES.map(
     (poly) => `<path d="${polyPath(poly)}" fill="#EDE4D0" stroke="#7A7260" stroke-width="0.6" stroke-linejoin="round"/>`
   ).join('\n');
@@ -864,11 +900,11 @@ function buildWorldMapSVG() {
   const pinsSvg = MAP_PINS.map(({ id, reg, pos }) => {
     const color = REGIONS[reg].color;
     const isFeatured = id <= 13;
-    const r = isFeatured ? 6.2 : 4.9;
-    const fs = isFeatured ? 6.6 : 5.4;
+    const r = isFeatured ? 5.2 : 4.4;
+    const fs = isFeatured ? 5.7 : 4.9;
     return `<g>
-      <circle cx="${pos[0]}" cy="${pos[1]}" r="${r}" fill="${color}" stroke="#FFFFFF" stroke-width="${isFeatured ? 1.25 : 0.9}"/>
-      <text x="${pos[0]}" y="${(parseFloat(pos[1]) + (isFeatured ? 2.2 : 1.9)).toFixed(1)}" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="${fs}" font-weight="800" fill="#FFFFFF">${id}</text>
+      <circle cx="${pos[0]}" cy="${pos[1]}" r="${r}" fill="${color}" stroke="#FFFFFF" stroke-width="${isFeatured ? 1.05 : 0.8}"/>
+      <text x="${pos[0]}" y="${(parseFloat(pos[1]) + (isFeatured ? 1.95 : 1.7)).toFixed(1)}" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="${fs}" font-weight="800" fill="#FFFFFF">${id}</text>
     </g>`;
   }).join('\n');
 
@@ -877,12 +913,11 @@ function buildWorldMapSVG() {
     ${gratLines}
     ${landSvg}
     ${seasSvg}
-    <!-- Space Inset Box -->
-    <rect x="5" y="121" width="76" height="23" rx="2.5" fill="#0B1324" stroke="#93C5FD" stroke-width="1"/>
-    <circle cx="16.5" cy="132.5" r="5.8" fill="${REGIONS.SP.color}" stroke="#FFFFFF" stroke-width="1"/>
-    <text x="16.5" y="134.8" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="6.4" font-weight="800" fill="#FFFFFF">2</text>
-    <text x="51" y="131" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="6.4" font-weight="800" fill="#FFFFFF">MERCURY</text>
-    <text x="51" y="139.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="5.6" font-weight="700" fill="#93C5FD">+ CRS-35 (#35)</text>
+    <!-- Space Inset Box (#2 Mercury; #35 CRS-35 is plotted off California) -->
+    <rect x="5" y="123" width="66" height="21" rx="2.5" fill="#0B1324" stroke="#93C5FD" stroke-width="1"/>
+    <circle cx="15.5" cy="133.5" r="5.2" fill="${REGIONS.SP.color}" stroke="#FFFFFF" stroke-width="1"/>
+    <text x="15.5" y="135.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="5.8" font-weight="800" fill="#FFFFFF">2</text>
+    <text x="45.5" y="135.8" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="6.6" font-weight="800" fill="#FFFFFF">MERCURY</text>
     ${pinsSvg}
   </svg>`;
 }
@@ -1222,7 +1257,7 @@ function renderHtml() {
         <span class="masthead-meta">${total} STORIES · 7 REGIONS · EVERY ONE DATED SATURDAY 21 NOVEMBER 2026</span>
       </div>
       <h1 class="masthead-title">Saturday 21 November 2026</h1>
-      <div class="masthead-sub">COP31 stalls into Day 13 overtime · BepiColombo reaches Mercury · Bitcoin plunges below $59,000</div>
+      <div class="masthead-sub">COP31 stalls into Day 13 overtime · BepiColombo reaches Mercury · Rutte pledges Polish defense as drones hit ship</div>
     </header>
 
     <section class="fig-strip">${figHtml}</section>
@@ -1239,7 +1274,7 @@ function renderHtml() {
       <div>
         <div class="sec-title">WHERE IT HAPPENED</div>
         ${buildWorldMapSVG()}
-        <div class="map-cap">Each pin matches its numbered story on this page.</div>
+        <div class="map-cap">All 35 stories plotted (#1–#35; #2 Mercury inset).</div>
       </div>
       <div>
         <div class="sec-title">ALSO ON SATURDAY 21 NOVEMBER — 22 MORE STORIES</div>
