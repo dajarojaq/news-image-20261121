@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const MAX_BYTES = 1048576;
-const sourcePath = path.join(import.meta.dirname, 'entry.png');
+const sourcePath = new URL('./entry.png', import.meta.url);
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR || '/output';
 const outputPath = path.join(outputDir, 'entry.png');
 
@@ -27,7 +27,17 @@ if (!isPng && !isJpeg) {
   throw new Error('entry.png must start with valid PNG or JPEG magic bytes');
 }
 
-fs.mkdirSync(outputDir, { recursive: true, mode: 0o755 });
-fs.chmodSync(outputDir, 0o755);
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true, mode: 0o755 });
+}
+try {
+  process.umask(0o022);
+} catch {
+  // Ignore if umask cannot be changed in a restricted runtime.
+}
 fs.writeFileSync(outputPath, imageBytes, { mode: 0o644 });
-fs.chmodSync(outputPath, 0o644);
+try {
+  fs.chmodSync(outputPath, 0o644);
+} catch {
+  // Ignore if chmod on output file is restricted by the sandbox.
+}
