@@ -645,7 +645,7 @@ function buildWorldMapSVG() {
     </g>`;
   }).join('\n');
 
-  return `<svg viewBox="0 0 254 144" width="254" height="144" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1px solid #C8BFA8;border-radius:3px;">
+  return `<svg viewBox="0 0 254 144" width="274" height="156" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1px solid #C8BFA8;border-radius:3px;">
     <defs>
       <linearGradient id="oceanBg" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="#ECF3F8"/>
@@ -738,8 +738,7 @@ function renderHtml() {
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
     width: 1024px;
-    height: 1024px;
-    overflow: hidden;
+    min-height: 1024px;
     background: #F8F4E9;
     color: #0E1B2B;
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
@@ -747,20 +746,20 @@ function renderHtml() {
   }
   .page {
     width: 1024px;
-    height: 1024px;
-    padding: 9px 14px 7px 14px;
+    min-height: 1024px;
+    padding: 6px 10px 5px 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   /* Masthead */
   .masthead-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 9.2px;
+    font-size: 10.5px;
     font-weight: 800;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.055em;
     text-transform: uppercase;
   }
   .masthead-kicker { color: #AE322B; }
@@ -768,9 +767,9 @@ function renderHtml() {
   .masthead-title {
     font-family: 'Playfair Display', Georgia, Cambria, serif;
     font-variant-numeric: lining-nums;
-    font-size: 47px;
+    font-size: 55px;
     font-weight: 900;
-    line-height: 1.03;
+    line-height: 1.0;
     letter-spacing: -0.015em;
     text-align: center;
     color: #0E1B2B;
@@ -793,9 +792,9 @@ function renderHtml() {
     flex: 0 0 78px;
     background: #AE322B;
     color: #FFFFFF;
-    font-size: 8.2px;
+    font-size: 9px;
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 1.12;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     display: flex;
@@ -812,22 +811,22 @@ function renderHtml() {
     grid-template-columns: repeat(7, 1fr);
   }
   .utc-item {
-    padding: 0 5px;
+    padding: 0 4px;
     border-left: 1px solid #D4CCB9;
     text-align: center;
   }
   .utc-item.first { border-left: none; }
   .utc-time {
-    font-size: 10.5px;
+    font-size: 11.8px;
     font-weight: 800;
     color: #AE322B;
-    line-height: 1.1;
+    line-height: 1.08;
   }
   .utc-text {
-    font-size: 8.5px;
+    font-size: 9.6px;
     font-weight: 600;
     color: #171C23;
-    line-height: 1.15;
+    line-height: 1.14;
     margin-top: 1px;
   }
   /* Numbers strip */
@@ -842,9 +841,9 @@ function renderHtml() {
     width: 78px;
     flex: 0 0 78px;
     color: #AE322B;
-    font-size: 8.2px;
+    font-size: 9px;
     font-weight: 900;
-    line-height: 1.15;
+    line-height: 1.12;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     text-align: center;
@@ -856,7 +855,7 @@ function renderHtml() {
     grid-template-columns: repeat(6, 1fr);
   }
   .num-item {
-    padding: 0 5px;
+    padding: 0 4px;
     border-left: 1px solid #D4CCB9;
     text-align: center;
   }
@@ -864,16 +863,16 @@ function renderHtml() {
   .num-val {
     font-family: 'Playfair Display', Georgia, Cambria, serif;
     font-variant-numeric: lining-nums;
-    font-size: 15.5px;
+    font-size: 18.5px;
     font-weight: 900;
     color: #0E1B2B;
-    line-height: 1.05;
+    line-height: 1.03;
   }
   .num-text {
-    font-size: 8.5px;
+    font-size: 9.5px;
     font-weight: 600;
     color: #262B33;
-    line-height: 1.15;
+    line-height: 1.14;
     margin-top: 1px;
   }
   /* Lead cards */
@@ -881,12 +880,12 @@ function renderHtml() {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    padding: 5px 0 6px 0;
+    padding: 6px 0 6px 0;
     border-bottom: 1px solid #D4CCB9;
   }
   .lead-art {
     width: 100%;
-    height: 112px;
+    height: 122px;
     border: 1px solid #C8BFA8;
     border-radius: 3px;
     overflow: hidden;
@@ -908,29 +907,29 @@ function renderHtml() {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     color: #FFFFFF;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 800;
     flex-shrink: 0;
   }
   .num-dot.sm {
-    width: 14px;
-    height: 14px;
-    font-size: 8px;
+    width: 15px;
+    height: 15px;
+    font-size: 8.6px;
   }
   .kicker {
-    font-size: 8.8px;
+    font-size: 10px;
     font-weight: 800;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.025em;
     text-transform: uppercase;
     white-space: nowrap;
   }
-  .kicker.sm { font-size: 7.8px; }
+  .kicker.sm { font-size: 8.4px; }
   .status-pill {
-    font-size: 7.4px;
+    font-size: 8.4px;
     font-weight: 800;
     letter-spacing: 0.02em;
     padding: 1px 4px;
@@ -940,20 +939,20 @@ function renderHtml() {
     text-transform: uppercase;
   }
   .status-pill.sm {
-    font-size: 6.5px;
+    font-size: 7px;
     padding: 0.5px 3px;
   }
   .lead-h2 {
     font-family: 'Playfair Display', Georgia, Cambria, serif;
     font-variant-numeric: lining-nums;
-    font-size: 16px;
+    font-size: 18.5px;
     font-weight: 800;
-    line-height: 1.14;
+    line-height: 1.10;
     color: #0E1B2B;
     margin-top: 3px;
   }
   .lead-deck {
-    font-size: 9.5px;
+    font-size: 10.8px;
     font-weight: 500;
     line-height: 1.24;
     color: #262B33;
@@ -964,7 +963,7 @@ function renderHtml() {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 8px;
-    padding: 5px 0 5px 0;
+    padding: 5px 0 6px 0;
     border-bottom: 1px solid #D4CCB9;
   }
   .mid-grid.last-mid {
@@ -972,7 +971,7 @@ function renderHtml() {
   }
   .mid-art {
     width: 100%;
-    height: 60px;
+    height: 68px;
     border: 1px solid #C8BFA8;
     border-radius: 2.5px;
     overflow: hidden;
@@ -981,29 +980,29 @@ function renderHtml() {
   .mid-h3 {
     font-family: 'Playfair Display', Georgia, Cambria, serif;
     font-variant-numeric: lining-nums;
-    font-size: 11.4px;
+    font-size: 13px;
     font-weight: 800;
-    line-height: 1.13;
+    line-height: 1.12;
     color: #0E1B2B;
     margin-top: 2px;
   }
   .mid-deck {
-    font-size: 8.5px;
+    font-size: 9.5px;
     font-weight: 500;
-    line-height: 1.2;
+    line-height: 1.20;
     color: #262B33;
     margin-top: 2px;
   }
   /* Zone 7: Map + Briefs */
   .bottom-zone {
     display: grid;
-    grid-template-columns: 254px 1fr;
-    gap: 14px;
-    padding: 5px 0 3px 0;
+    grid-template-columns: 274px 1fr;
+    gap: 12px;
+    padding: 6px 0 4px 0;
     align-items: start;
   }
   .sec-title {
-    font-size: 9.8px;
+    font-size: 11px;
     font-weight: 900;
     color: #AE322B;
     text-transform: uppercase;
@@ -1013,9 +1012,9 @@ function renderHtml() {
   .legend {
     display: flex;
     flex-wrap: wrap;
-    gap: 3px 9px;
-    margin-top: 5px;
-    font-size: 8.4px;
+    gap: 4px 10px;
+    margin-top: 6px;
+    font-size: 9.8px;
     color: #171C23;
     line-height: 1.25;
   }
@@ -1025,31 +1024,32 @@ function renderHtml() {
     gap: 3.5px;
   }
   .leg-dot {
-    width: 7px;
-    height: 7px;
+    width: 7.5px;
+    height: 7.5px;
     border-radius: 50%;
     display: inline-block;
   }
   .briefs-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 9px;
   }
   .briefs-col {
     display: flex;
     flex-direction: column;
-    gap: 4.5px;
+    gap: 5.5px;
   }
   .brief-item {
     display: flex;
     align-items: flex-start;
     gap: 5px;
-    font-size: 9.2px;
+    font-size: 10.6px;
     line-height: 1.22;
     color: #171C23;
   }
   .brief-body strong { color: #0E1B2B; }
   /* Zone 8: Date Check + Footer */
+  footer { margin-top: auto; }
   .date-check {
     display: flex;
     align-items: center;
@@ -1057,22 +1057,22 @@ function renderHtml() {
     background: #F3EDE0;
     border: 1px solid #C8BFA8;
     border-radius: 2.5px;
-    padding: 4px 8px;
+    padding: 5px 8px;
   }
   .dc-pill {
     background: #B6231B;
     color: #FFFFFF;
-    font-size: 8.2px;
+    font-size: 9.2px;
     font-weight: 900;
     letter-spacing: 0.05em;
-    padding: 3px 7px;
+    padding: 3.5px 8px;
     border-radius: 2px;
     white-space: nowrap;
     flex-shrink: 0;
   }
   .dc-text {
-    font-size: 8.4px;
-    line-height: 1.24;
+    font-size: 9.5px;
+    line-height: 1.25;
     color: #171C23;
   }
   .footer {
@@ -1080,9 +1080,9 @@ function renderHtml() {
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid #171C23;
-    padding-top: 3.5px;
+    padding-top: 4px;
     margin-top: 4px;
-    font-size: 8px;
+    font-size: 8.9px;
     color: #262B33;
   }
   .footer-pills {
