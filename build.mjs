@@ -28,10 +28,10 @@ const REGIONS = {
 
 const KEY_FIGURES = [
   { val: 'Day 13', label: 'of COP31 talks past deadline' },
-  { val: '5', label: 'missiles downed (Riyadh, Jizan)' },
+  { val: '<$59,000', label: 'Bitcoin low in tech sell-off' },
   { val: '8 yrs', label: "BepiColombo's trip to Mercury" },
+  { val: '5', label: 'missiles downed (Riyadh, Jizan)' },
   { val: '98.5%', label: 'tariffs cut in EU–Indonesia pact' },
-  { val: 'M6.8 · 6.7', label: 'Banda Sea & Peru quakes' },
   { val: '146', label: 'evacuated safe off Davao 767' },
 ];
 
@@ -190,71 +190,120 @@ const LEAD_CARDS = [
   },
   {
     id: 3,
-    reg: 'EU',
-    kicker: 'WARSAW · BALTIC',
-    headline: 'Rutte pledges Polish defense as drones hit ship',
-    deck: 'NATO chief vows to defend "every inch" in Warsaw; drones cripple Russian cargo ship Sparta II.',
-    source: 'NATO, Yle',
+    reg: 'AM',
+    kicker: 'MARKETS · CRYPTO',
+    headline: 'Bitcoin plunges below $59,000 in tech sell-off',
+    deck: 'Largest cryptocurrency hits lowest level since July as AI and tech-stock jitters rattle digital assets.',
+    source: 'Reuters',
     svg: `<svg viewBox="0 0 324 130" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="display:block" xmlns="http://www.w3.org/2000/svg">
-      <!-- Baltic Sea / Gulf of Finland -->
-      <rect width="324" height="130" fill="#6EA2CF"/>
-      <path d="M180,30 Q190,26 200,30 T220,30 M256,22 Q266,18 276,22 M195,97 Q208,93 221,97 T247,97 M270,93 Q282,89 294,93" fill="none" stroke="#B7D7F0" stroke-width="1.4" stroke-linecap="round"/>
-      <!-- Poland landmass left -->
-      <path d="M0,0 L166,0 L166,46 C158,64 162,88 152,130 L0,130 Z" fill="#EAE1CD" stroke="#6E6554" stroke-width="1.6"/>
-      <line x1="146" y1="53" x2="138" y2="112" stroke="#C41E1A" stroke-width="2" stroke-dasharray="5 3"/>
-      <!-- Warsaw Palace spire silhouette -->
-      <g fill="#B8AF9B" stroke="#6E6554" stroke-width="1">
-        <rect x="20" y="90" width="32" height="22"/>
-        <rect x="28" y="78" width="16" height="12"/>
-        <polygon points="33,78 36,62 39,78"/>
+      <defs>
+        <linearGradient id="btcTerm" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0E1729"/>
+          <stop offset="100%" stop-color="#1A1320"/>
+        </linearGradient>
+        <linearGradient id="btcDrop" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#EF4444" stop-opacity="0.45"/>
+          <stop offset="100%" stop-color="#EF4444" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <rect width="324" height="130" fill="url(#btcTerm)"/>
+      <!-- Crisp terminal grid -->
+      <g stroke="#293548" stroke-width="0.7">
+        <line x1="0" y1="30" x2="324" y2="30"/><line x1="0" y1="56" x2="324" y2="56"/>
+        <line x1="0" y1="82" x2="324" y2="82"/><line x1="0" y1="108" x2="324" y2="108"/>
+        <line x1="65" y1="0" x2="65" y2="130"/><line x1="130" y1="0" x2="130" y2="130"/>
+        <line x1="195" y1="0" x2="195" y2="130"/><line x1="260" y1="0" x2="260" y2="130"/>
       </g>
-      <!-- Bold NATO Shield protecting Warsaw -->
-      <g transform="translate(78,84)">
-        <path d="M-16,-20 L16,-20 L16,0 C16,13 0,21 0,21 C0,21 -16,13 -16,0 Z" fill="${REGIONS.EU.color}" stroke="#FFFFFF" stroke-width="2.2"/>
-        <path d="M-16,-20 L16,-20 L16,0 C16,13 0,21 0,21 C0,21 -16,13 -16,0 Z" fill="none" stroke="#111827" stroke-width="1"/>
-        <polygon points="0,-13 3,-3 12,0 3,3 0,13 -3,3 -12,0 -3,-3" fill="#FFFFFF"/>
+      <!-- Price axis right -->
+      <text x="318" y="28" text-anchor="end" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.5" font-weight="700" fill="#94A3B8">$62K</text>
+      <text x="318" y="54" text-anchor="end" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.5" font-weight="700" fill="#94A3B8">$60K</text>
+      <text x="318" y="106" text-anchor="end" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.5" font-weight="700" fill="#FCA5A5">$56K</text>
+      <!-- $59,000 psychological threshold line -->
+      <line x1="0" y1="73" x2="324" y2="73" stroke="#FACC15" stroke-width="1.3" stroke-dasharray="5 3"/>
+      <rect x="242" y="61" width="76" height="12" rx="1.5" fill="#FACC15"/>
+      <text x="280" y="70" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8" font-weight="800" fill="#111827">$59K FLOOR</text>
+      <!-- Red area fill + sharp downward price line breaking $59K -->
+      <polygon points="10,60 44,58 76,63 110,55 144,61 172,70 198,84 226,95 250,91 278,104 278,130 10,130" fill="url(#btcDrop)"/>
+      <!-- Subtle red/green candlesticks along trajectory -->
+      <g stroke-width="1.2">
+        <line x1="144" y1="55" x2="144" y2="67" stroke="#EF4444"/><rect x="141" y="57" width="6" height="7" fill="#EF4444"/>
+        <line x1="172" y1="62" x2="172" y2="77" stroke="#EF4444"/><rect x="169" y="65" width="6" height="9" fill="#EF4444"/>
+        <line x1="198" y1="74" x2="198" y2="92" stroke="#EF4444"/><rect x="195" y="77" width="6" height="12" fill="#EF4444"/>
+        <line x1="226" y1="84" x2="226" y2="102" stroke="#EF4444"/><rect x="223" y="88" width="6" height="10" fill="#EF4444"/>
       </g>
-      <path d="M158,84 Q130,70 106,80" fill="none" stroke="#C41E1A" stroke-width="2.2" stroke-dasharray="4 2.5"/>
-      <polygon points="103,80 110,74 108,80 114,83 107,85 104,90 102,84 96,82" fill="#F59E0B" stroke="#C41E1A" stroke-width="0.9"/>
-      <!-- Detailed Burning Cargo Ship Sparta II on Baltic -->
-      <g transform="translate(240,67)">
-        <ellipse cx="0" cy="18" rx="58" ry="4" fill="#3D6D99" opacity="0.6"/>
-        <polygon points="-50,4 54,4 46,16 -44,16" fill="#1E293B" stroke="#111827" stroke-width="1.6"/>
-        <polygon points="-46,12 48,12 46,16 -44,16" fill="#C41E1A"/>
-        <rect x="-34" y="-4" width="24" height="8" fill="#475569" stroke="#111827" stroke-width="1.2"/>
-        <rect x="-6" y="-5" width="22" height="9" fill="#64748B" stroke="#111827" stroke-width="1.2"/>
-        <line x1="-22" y1="-4" x2="-12" y2="-20" stroke="#111827" stroke-width="1.8"/>
-        <line x1="6" y1="-5" x2="18" y2="-20" stroke="#111827" stroke-width="1.8"/>
-        <rect x="24" y="-14" width="18" height="18" fill="#F1F5F9" stroke="#111827" stroke-width="1.4"/>
-        <rect x="27" y="-10" width="12" height="4" fill="#1E293B"/>
-        <circle cx="-12" cy="-22" r="10" fill="#4B5563" opacity="0.85"/>
-        <circle cx="-2" cy="-32" r="13" fill="#6B7280" opacity="0.72"/>
-        <circle cx="12" cy="-40" r="11" fill="#9CA3AF" opacity="0.55"/>
-        <polygon points="-24,3 -14,-16 -6,-4 0,-18 8,3" fill="#DC2626"/>
-        <polygon points="-19,3 -12,-9 -6,0 0,-10 4,3" fill="#FACC15"/>
-        <path d="M36,24 Q48,20 58,24 L54,29 L40,29 Z" fill="#F97316" stroke="#111827" stroke-width="1.2"/>
+      <polyline points="10,60 44,58 76,63 110,55 144,61 172,70 198,84 226,95 250,91 278,104" fill="none" stroke="#FF4D4F" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/>
+      <!-- Glowing drop endpoint -->
+      <circle cx="278" cy="104" r="5" fill="#FF4D4F" stroke="#FFFFFF" stroke-width="1.6"/>
+      <!-- Iconic Gold Bitcoin Coin Emblem top-right -->
+      <g transform="translate(274,31)">
+        <circle cx="0" cy="0" r="20" fill="#F59E0B" stroke="#FEF08A" stroke-width="1.8"/>
+        <circle cx="0" cy="0" r="16" fill="none" stroke="#B45309" stroke-width="1.1"/>
+        <text x="0" y="8" text-anchor="middle" font-family="Georgia,'IBM Plex Sans',serif" font-size="22" font-weight="900" fill="#FFFFFF">₿</text>
       </g>
-      <g fill="#111827" stroke="#FFFFFF" stroke-width="0.7">
-        <polygon points="186,21 202,28 190,32 192,27"/>
-        <polygon points="210,11 224,19 213,22 215,17"/>
-      </g>
-      <text x="240" y="108" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="9.2" font-weight="800" fill="#0B1F38">SPARTA II · CREW EVACUATED</text>
-      <!-- Uniform Top Banner (Europe = Biru) -->
-      <rect x="6" y="6" width="168" height="27" fill="${REGIONS.EU.color}" stroke="#FFFFFF" stroke-width="1.6"/>
-      <text x="90" y="25.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="18" font-weight="800" fill="#FFFFFF" letter-spacing="0.2">NATO · BALTIC</text>
-      <rect x="6" y="37" width="144" height="18" fill="#FFFFFF" stroke="#111827" stroke-width="1.2"/>
-      <text x="78" y="49.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="11" font-weight="700" fill="#111827">"Every inch" · ship hit</text>
+      <!-- Downward red arrow badge next to coin -->
+      <polygon points="222,22 238,22 230,36" fill="#EF4444" stroke="#FFFFFF" stroke-width="1"/>
+      <!-- Uniform Top Banner (Americas = Merah) -->
+      <rect x="6" y="6" width="184" height="27" fill="${REGIONS.AM.color}" stroke="#FFFFFF" stroke-width="1.6"/>
+      <text x="98" y="25.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="18.2" font-weight="800" fill="#FFFFFF" letter-spacing="0.2">BITCOIN &lt;$59K</text>
+      <rect x="6" y="37" width="164" height="18" fill="#FFFFFF" stroke="#111827" stroke-width="1.2"/>
+      <text x="88" y="49.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="11" font-weight="700" fill="#111827">4-month low · tech slump</text>
       <!-- Uniform Bottom-Left Source Ribbon -->
-      <rect x="0" y="112" width="142" height="18" fill="#111827"/>
-      <text x="71" y="124.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="9.5" font-weight="700" fill="#FFFFFF">Confirmed · NATO, Yle</text>
+      <rect x="0" y="112" width="142" height="18" fill="#0B1120"/>
+      <text x="71" y="124.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="9.5" font-weight="700" fill="#FFFFFF">Confirmed · Market Data</text>
     </svg>`,
   },
 ];
 
-// Mid cards (#4 - #13) — exact 192x76 inner fit, uniform x=6 y=6 banner & x=0 bottom-left source tag
+// Mid cards (#4 - #13) — 10 unique beats, exact 192x76 inner fit, uniform x=6 y=6 banner & x=0 bottom-left tag
 const MID_CARDS = [
   {
     id: 4,
+    reg: 'EU',
+    kicker: 'WARSAW · BALTIC',
+    headline: 'Rutte pledges Polish defense as drones hit ship',
+    deck: 'NATO chief vows "every inch"; drones cripple Russia\'s Sparta II.',
+    source: 'NATO, Yle',
+    svg: `<svg viewBox="0 0 192 76" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="display:block" xmlns="http://www.w3.org/2000/svg">
+      <!-- Baltic Sea right + Poland coast left -->
+      <rect width="192" height="76" fill="#6EA2CF"/>
+      <path d="M98,64 Q108,61 118,64 T138,64 M150,62 Q160,59 170,62" fill="none" stroke="#B7D7F0" stroke-width="1.2"/>
+      <path d="M0,0 L80,0 L80,32 C76,46 78,60 72,76 L0,76 Z" fill="#EAE1CD" stroke="#6E6554" stroke-width="1.3"/>
+      <!-- Bold NATO Shield left -->
+      <g transform="translate(38,44)">
+        <path d="M-12,-14 L12,-14 L12,0 C12,9 0,15 0,15 C0,15 -12,9 -12,0 Z" fill="${REGIONS.EU.color}" stroke="#FFFFFF" stroke-width="1.8"/>
+        <polygon points="0,-9 2.2,-2.2 8.5,0 2.2,2.2 0,9 -2.2,2.2 -8.5,0 -2.2,-2.2" fill="#FFFFFF"/>
+      </g>
+      <!-- Deflected missile arc -->
+      <path d="M84,46 Q68,38 54,44" fill="none" stroke="#C41E1A" stroke-width="1.6" stroke-dasharray="3 2"/>
+      <circle cx="53" cy="44" r="3" fill="#F59E0B" stroke="#C41E1A" stroke-width="0.8"/>
+      <!-- Burning Russian Cargo Ship Sparta II right -->
+      <g transform="translate(136,48)">
+        <polygon points="-38,3 42,3 35,12 -33,12" fill="#1E293B" stroke="#111827" stroke-width="1.2"/>
+        <polygon points="-35,9 37,9 35,12 -33,12" fill="#C41E1A"/>
+        <rect x="-24" y="-3" width="18" height="6" fill="#475569" stroke="#111827" stroke-width="1"/>
+        <rect x="-2" y="-4" width="16" height="7" fill="#64748B" stroke="#111827" stroke-width="1"/>
+        <rect x="18" y="-11" width="14" height="14" fill="#F1F5F9" stroke="#111827" stroke-width="1.1"/>
+        <rect x="20" y="-8" width="10" height="3.5" fill="#1E293B"/>
+        <!-- Smoke & fireball -->
+        <circle cx="-8" cy="-16" r="7" fill="#4B5563" opacity="0.85"/>
+        <circle cx="2" cy="-24" r="8.5" fill="#6B7280" opacity="0.68"/>
+        <polygon points="-18,2 -10,-12 -4,-3 1,-13 7,2" fill="#DC2626"/>
+        <polygon points="-14,2 -9,-7 -4,0 0,-7 4,2" fill="#FACC15"/>
+        <!-- Orange lifeboat -->
+        <path d="M26,17 Q34,14 42,17 L39,21 L29,21 Z" fill="#F97316" stroke="#111827" stroke-width="1"/>
+      </g>
+      <!-- Attacking delta drone -->
+      <polygon points="104,24 118,29 107,32 109,28" fill="#111827" stroke="#FFFFFF" stroke-width="0.6"/>
+      <!-- Uniform Top Banner (Europe = Biru) -->
+      <rect x="6" y="6" width="126" height="20" fill="${REGIONS.EU.color}" stroke="#FFFFFF" stroke-width="1.3"/>
+      <text x="69" y="20.2" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="13.4" font-weight="800" fill="#FFFFFF">NATO · BALTIC</text>
+      <!-- Uniform Bottom-Left Source Ribbon -->
+      <rect x="0" y="62" width="100" height="14" fill="#111827"/>
+      <text x="50" y="72" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.4" font-weight="700" fill="#FFFFFF">Confirmed · NATO</text>
+    </svg>`,
+  },
+  {
+    id: 5,
     reg: 'ME',
     kicker: 'RIYADH · JIZAN',
     headline: 'Five Houthi missiles downed over Saudi Arabia',
@@ -263,7 +312,6 @@ const MID_CARDS = [
     svg: `<svg viewBox="0 0 192 76" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="display:block" xmlns="http://www.w3.org/2000/svg">
       <rect width="192" height="76" fill="#0F1B36"/>
       <circle cx="164" cy="14" r="1" fill="#FFF"/><circle cx="182" cy="24" r="1.2" fill="#FFF"/><circle cx="148" cy="26" r="1" fill="#FFF"/>
-      <!-- Riyadh Skyline seated cleanly above bottom-left tag -->
       <rect x="8" y="50" width="13" height="26" fill="#273A63"/>
       <rect x="24" y="46" width="12" height="30" fill="#32497A"/>
       <polygon points="39,76 46,35 53,76" fill="#4B669E" stroke="#85A5E0" stroke-width="0.7"/>
@@ -272,7 +320,6 @@ const MID_CARDS = [
       <path d="M64,29 Q69,46 74,29 Z" fill="#0F1B36"/>
       <line x1="63" y1="29" x2="75" y2="29" stroke="#E2ECFF" stroke-width="1.3"/>
       <rect x="83" y="52" width="15" height="24" fill="#273A63"/>
-      <!-- 5 Incoming Ballistic Trajectories + Patriot Interceptions -->
       <g fill="none" stroke="#FF6B6B" stroke-width="1.4" stroke-dasharray="3 2">
         <path d="M188,68 Q154,36 116,32"/>
         <path d="M190,56 Q160,34 134,39"/>
@@ -301,7 +348,7 @@ const MID_CARDS = [
     </svg>`,
   },
   {
-    id: 5,
+    id: 6,
     reg: 'AS',
     kicker: 'INDONESIA · EU',
     headline: 'Indonesia and EU sign landmark trade pact',
@@ -311,11 +358,9 @@ const MID_CARDS = [
       <rect width="192" height="76" fill="#E6F3EC"/>
       <rect x="0" y="52" width="192" height="24" fill="#2A6EA6"/>
       <path d="M8,62 Q22,58 36,62 T64,62 M118,64 Q132,60 146,64 T174,64" fill="none" stroke="#9BD0F5" stroke-width="1.3"/>
-      <!-- Indonesia Flag left -->
       <rect x="7" y="30" width="33" height="10" fill="#CE1126"/>
       <rect x="7" y="40" width="33" height="10" fill="#FFFFFF"/>
       <rect x="7" y="30" width="33" height="20" fill="none" stroke="#111827" stroke-width="1.1"/>
-      <!-- EU Flag right -->
       <rect x="152" y="30" width="33" height="20" fill="#003399" stroke="#111827" stroke-width="1.1"/>
       <g fill="#FFCC00">
         <circle cx="168.5" cy="34" r="0.9"/><circle cx="171.5" cy="35" r="0.9"/><circle cx="173.5" cy="37.2" r="0.9"/>
@@ -323,7 +368,6 @@ const MID_CARDS = [
         <circle cx="168.5" cy="46" r="0.9"/><circle cx="165.5" cy="45" r="0.9"/><circle cx="163.5" cy="42.8" r="0.9"/>
         <circle cx="162.7" cy="40" r="0.9"/><circle cx="163.5" cy="37.2" r="0.9"/><circle cx="165.5" cy="35" r="0.9"/>
       </g>
-      <!-- Detailed Container Cargo Ship Center -->
       <g transform="translate(96,48)">
         <polygon points="-44,-2 48,-2 40,10 -38,10" fill="#1E293B" stroke="#111827" stroke-width="1.3"/>
         <polygon points="-40,6 42,6 40,10 -38,10" fill="#C41E1A"/>
@@ -346,7 +390,7 @@ const MID_CARDS = [
     </svg>`,
   },
   {
-    id: 6,
+    id: 7,
     reg: 'AM',
     kicker: 'JUNÍN · PERU',
     headline: 'M6.7 quake shakes central Peru and Lima',
@@ -354,11 +398,9 @@ const MID_CARDS = [
     source: 'USGS',
     svg: `<svg viewBox="0 0 192 76" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="display:block" xmlns="http://www.w3.org/2000/svg">
       <rect width="192" height="76" fill="#F6E8DE"/>
-      <!-- Andean Mountain Silhouette -->
       <polygon points="0,50 24,28 46,43 74,24 104,47 134,31 162,50" fill="#A68C74" stroke="#5C493A" stroke-width="1.1"/>
       <polygon points="24,28 18,34 24,33 30,35" fill="#FFFFFF"/>
       <polygon points="74,24 66,32 74,30 82,33" fill="#FFFFFF"/>
-      <!-- Lima Congress Classical Portico right -->
       <g transform="translate(131,32)">
         <polygon points="0,7 26,0 52,7" fill="#E8DCC8" stroke="#111827" stroke-width="1.2"/>
         <rect x="4" y="7" width="44" height="15" fill="#F8F2E6" stroke="#111827" stroke-width="1.1"/>
@@ -367,13 +409,10 @@ const MID_CARDS = [
         <line x1="32" y1="7" x2="32" y2="22" stroke="#111827" stroke-width="1.8"/>
         <line x1="42" y1="7" x2="42" y2="22" stroke="#111827" stroke-width="1.8"/>
       </g>
-      <!-- Earth Crust Cross-Section -->
       <rect x="0" y="50" width="192" height="26" fill="#C29169" stroke="#5C493A" stroke-width="1.2"/>
-      <!-- Deep Hypocenter Rings placed center-right cleanly away from bottom-left tag -->
       <circle cx="132" cy="63" r="18" fill="none" stroke="#C41E1A" stroke-width="1.2" opacity="0.5"/>
       <circle cx="132" cy="63" r="11" fill="none" stroke="#C41E1A" stroke-width="1.6"/>
       <circle cx="132" cy="63" r="4.5" fill="#C41E1A"/>
-      <!-- Sharp Seismograph Trace -->
       <polyline points="0,44 34,44 40,37 45,51 50,29 55,58 60,28 66,55 72,37 78,47 86,44 130,44" fill="none" stroke="#C41E1A" stroke-width="2"/>
       <!-- Uniform Top Banner (Americas = Merah) -->
       <rect x="6" y="6" width="144" height="20" fill="${REGIONS.AM.color}" stroke="#FFFFFF" stroke-width="1.3"/>
@@ -384,7 +423,56 @@ const MID_CARDS = [
     </svg>`,
   },
   {
-    id: 7,
+    id: 8,
+    reg: 'AM',
+    kicker: 'WASHINGTON · CYBER',
+    headline: "Hackers breach FBI's core criminal database",
+    deck: 'Apparent cyberattack hits NCIC warrant system; probe under way.',
+    source: 'CNN, AP',
+    svg: `<svg viewBox="0 0 192 76" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="display:block" xmlns="http://www.w3.org/2000/svg">
+      <rect width="192" height="76" fill="#0C1628"/>
+      <!-- Subtle cyber grid -->
+      <g stroke="#1E3A5F" stroke-width="0.6">
+        <line x1="0" y1="34" x2="192" y2="34"/><line x1="0" y1="52" x2="192" y2="52"/>
+        <line x1="48" y1="26" x2="48" y2="76"/><line x1="96" y1="26" x2="96" y2="76"/><line x1="144" y1="26" x2="144" y2="76"/>
+      </g>
+      <!-- Left Server Rack Stack (NCIC) -->
+      <g transform="translate(10,30)">
+        <rect x="0" y="0" width="48" height="30" rx="2" fill="#1E293B" stroke="#64748B" stroke-width="1.2"/>
+        <rect x="4" y="4" width="40" height="6" rx="1" fill="#334155"/>
+        <circle cx="9" cy="7" r="1.5" fill="#22C55E"/><circle cx="15" cy="7" r="1.5" fill="#EF4444"/>
+        <rect x="4" y="12" width="40" height="6" rx="1" fill="#334155"/>
+        <circle cx="9" cy="15" r="1.5" fill="#EF4444"/><circle cx="15" cy="15" r="1.5" fill="#EF4444"/>
+        <rect x="4" y="20" width="40" height="6" rx="1" fill="#334155"/>
+        <text x="30" y="25.2" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="6.4" font-weight="800" fill="#93C5FD">NCIC</text>
+      </g>
+      <!-- Center Cracked Federal Shield + Breach Bolt -->
+      <g transform="translate(96,47)">
+        <circle cx="0" cy="0" r="20" fill="none" stroke="#EF4444" stroke-width="1" stroke-dasharray="3 2" opacity="0.65"/>
+        <path d="M-13,-14 L13,-14 L13,0 C13,10 0,16 0,16 C0,16 -13,10 -13,0 Z" fill="#1D4ED8" stroke="#FACC15" stroke-width="1.5"/>
+        <polyline points="-3,-13 2,-4 -4,1 4,13" fill="none" stroke="#0C1628" stroke-width="2.6"/>
+        <polyline points="-3,-13 2,-4 -4,1 4,13" fill="none" stroke="#FF4D4F" stroke-width="1.4"/>
+      </g>
+      <!-- Right Unlocked Breach Padlock + Alert Screen -->
+      <g transform="translate(132,31)">
+        <rect x="0" y="0" width="52" height="36" rx="2" fill="#1F1218" stroke="#EF4444" stroke-width="1.2"/>
+        <rect x="4" y="4" width="44" height="10" rx="1" fill="#C41E1A"/>
+        <text x="26" y="11.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="7.2" font-weight="800" fill="#FFFFFF">BREACH</text>
+        <!-- Open shackle padlock -->
+        <path d="M21,24 L21,20 A5,5 0 0,1 30,18" fill="none" stroke="#FACC15" stroke-width="2"/>
+        <rect x="19" y="23" width="14" height="10" rx="1.5" fill="#FACC15" stroke="#111827" stroke-width="1"/>
+        <circle cx="26" cy="28" r="1.5" fill="#111827"/>
+      </g>
+      <!-- Uniform Top Banner (Americas = Merah) -->
+      <rect x="6" y="6" width="142" height="20" fill="${REGIONS.AM.color}" stroke="#FFFFFF" stroke-width="1.3"/>
+      <text x="77" y="20.2" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="13.2" font-weight="800" fill="#FFFFFF">FBI DATA BREACH</text>
+      <!-- Uniform Bottom-Left Source Ribbon -->
+      <rect x="0" y="62" width="96" height="14" fill="#090F1C"/>
+      <text x="48" y="72" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.4" font-weight="700" fill="#FFFFFF">Reported · CNN, AP</text>
+    </svg>`,
+  },
+  {
+    id: 9,
     reg: 'AM',
     kicker: 'SINALOA · MEXICO',
     headline: 'Mexico captures FBI-wanted cartel boss in raid',
@@ -422,7 +510,7 @@ const MID_CARDS = [
     </svg>`,
   },
   {
-    id: 8,
+    id: 10,
     reg: 'AS',
     kicker: 'DAVAO · PHILIPPINES',
     headline: 'Air Niugini 767 makes emergency landing',
@@ -463,7 +551,7 @@ const MID_CARDS = [
     </svg>`,
   },
   {
-    id: 9,
+    id: 11,
     reg: 'EU',
     kicker: 'PARIS · BERLIN',
     headline: 'Tens of thousands march across Europe',
@@ -507,36 +595,7 @@ const MID_CARDS = [
     </svg>`,
   },
   {
-    id: 10,
-    reg: 'AS',
-    kicker: 'BANDA SEA · INDONESIA',
-    headline: "M6.8 quake strikes Indonesia's Banda Sea",
-    deck: 'Deep tremor hits 104 km NE of Lospalos; no tsunami threat.',
-    source: 'USGS',
-    svg: `<svg viewBox="0 0 192 76" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="display:block" xmlns="http://www.w3.org/2000/svg">
-      <rect width="192" height="76" fill="#B6DDF2"/>
-      <path d="M6,55 L36,47 L56,41 L64,46 L42,55 L14,61 Z" fill="#5DA373" stroke="#265436" stroke-width="1.2"/>
-      <path d="M72,37 L94,34 L98,40 L78,42 Z" fill="#5DA373" stroke="#265436" stroke-width="1"/>
-      <path d="M16,37 L38,34 L42,39 L20,41 Z" fill="#5DA373" stroke="#265436" stroke-width="1"/>
-      <circle cx="105" cy="51" r="3" fill="#5DA373" stroke="#265436" stroke-width="0.9"/>
-      <circle cx="72" cy="48" r="19" fill="none" stroke="#C41E1A" stroke-width="1.2" opacity="0.5"/>
-      <circle cx="72" cy="48" r="12.5" fill="none" stroke="#C41E1A" stroke-width="1.6" opacity="0.8"/>
-      <circle cx="72" cy="48" r="6.8" fill="none" stroke="#C41E1A" stroke-width="1.9"/>
-      <circle cx="72" cy="48" r="3.2" fill="#C41E1A"/>
-      <rect x="107" y="29" width="79" height="30" rx="2" fill="#FFFFFF" stroke="#111827" stroke-width="1.2"/>
-      <text x="146.5" y="41" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="10.2" font-weight="800" fill="#111827">132 km deep</text>
-      <path d="M117,47 Q125,44 133,47 T149,47 T165,47 T177,47" fill="none" stroke="${REGIONS.AS.color}" stroke-width="1.6"/>
-      <text x="146.5" y="56.5" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.8" font-weight="800" fill="${REGIONS.AS.color}">NO TSUNAMI</text>
-      <!-- Uniform Top Banner (Asia = Hijau) -->
-      <rect x="6" y="6" width="144" height="20" fill="${REGIONS.AS.color}" stroke="#FFFFFF" stroke-width="1.3"/>
-      <text x="78" y="20.2" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="13.2" font-weight="800" fill="#FFFFFF">BANDA SEA: M6.8</text>
-      <!-- Uniform Bottom-Left Source Ribbon -->
-      <rect x="0" y="62" width="94" height="14" fill="#111827"/>
-      <text x="47" y="72" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.4" font-weight="700" fill="#FFFFFF">USGS · 09:42 UTC</text>
-    </svg>`,
-  },
-  {
-    id: 11,
+    id: 12,
     reg: 'AF',
     kicker: 'ASWAN · EGYPT',
     headline: 'Al-Sisi opens Aswan Forum on debt relief',
@@ -545,14 +604,11 @@ const MID_CARDS = [
     svg: `<svg viewBox="0 0 192 76" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="display:block" xmlns="http://www.w3.org/2000/svg">
       <rect width="192" height="76" fill="#F7EBD0"/>
       <rect x="0" y="57" width="192" height="19" fill="#2A65A6"/>
-      <!-- Nile Felucca Sailboat -->
       <polygon points="84,58 94,35 102,58" fill="#FFFFFF" stroke="#111827" stroke-width="1.2"/>
       <path d="M80,58 L106,58 L102,63 L84,63 Z" fill="#7C4A22" stroke="#111827" stroke-width="1.1"/>
-      <!-- Africa Silhouette cleanly above bottom-left tag -->
       <path d="M23,28 L45,28 L54,35 L51,44 L42,56 L35,60 L29,48 L19,41 L18,34 Z" fill="#C9963A" stroke="#5C4212" stroke-width="1.3"/>
       <path d="M39,29 Q42,37 39,44" fill="none" stroke="#2A65A6" stroke-width="1.7"/>
       <circle cx="40" cy="34" r="2.6" fill="#C41E1A" stroke="#FFFFFF" stroke-width="0.9"/>
-      <!-- Conference Podium right -->
       <g transform="translate(120,29)">
         <rect x="4" y="0" width="58" height="28" fill="#E6D5B0" stroke="#7A6232" stroke-width="1"/>
         <line x1="12" y1="0" x2="12" y2="28" stroke="#7A6232" stroke-width="2"/>
@@ -574,7 +630,7 @@ const MID_CARDS = [
     </svg>`,
   },
   {
-    id: 12,
+    id: 13,
     reg: 'OC',
     kicker: 'TWICKENHAM · RUGBY',
     headline: 'England routs All Blacks 37–12 in record win',
@@ -613,44 +669,6 @@ const MID_CARDS = [
       <text x="53" y="72" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.4" font-weight="700" fill="#FFFFFF">Record margin · Rugby</text>
     </svg>`,
   },
-  {
-    id: 13,
-    reg: 'AS',
-    kicker: 'DHAKA · BANGLADESH',
-    headline: '80+ Bangladesh garment plants shut in protests',
-    deck: 'Wage sit-ins close Savar and Ashulia factories; dozens held.',
-    source: 'Press',
-    svg: `<svg viewBox="0 0 192 76" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="display:block" xmlns="http://www.w3.org/2000/svg">
-      <rect width="192" height="76" fill="#EFE8D9"/>
-      <rect x="85" y="27" width="10" height="24" fill="#475569" stroke="#111827" stroke-width="1.2"/>
-      <polygon points="10,43 10,29 34,38 34,29 58,38 58,29 82,38 82,43" fill="#64748B" stroke="#111827" stroke-width="1.4"/>
-      <rect x="10" y="43" width="72" height="29" fill="#D5DCE4" stroke="#111827" stroke-width="1.4"/>
-      <rect x="30" y="49" width="32" height="23" fill="#475569" stroke="#111827" stroke-width="1.3"/>
-      <line x1="30" y1="54" x2="62" y2="54" stroke="#94A3B8" stroke-width="1"/>
-      <line x1="30" y1="59" x2="62" y2="59" stroke="#94A3B8" stroke-width="1"/>
-      <path d="M42,56 L42,52 A4,4 0 0,1 50,52 L50,56" fill="none" stroke="#FACC15" stroke-width="2"/>
-      <rect x="39" y="56" width="14" height="10" rx="2" fill="#EAB308" stroke="#111827" stroke-width="1.3"/>
-      <circle cx="46" cy="60.5" r="1.5" fill="#111827"/>
-      <g stroke="#111827" stroke-width="1.1">
-        <line x1="125" y1="53" x2="125" y2="38"/><rect x="107" y="29" width="36" height="12" fill="#FFFFFF"/>
-        <text x="125" y="38" text-anchor="middle" stroke="none" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.2" font-weight="800" fill="#C41E1A">WAGES</text>
-        <line x1="164" y1="53" x2="164" y2="39"/><rect x="148" y="30" width="34" height="12" fill="#FACC15"/>
-        <text x="165" y="39" text-anchor="middle" stroke="none" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8" font-weight="800" fill="#111827">SIT-IN</text>
-      </g>
-      <g fill="#137A54" stroke="#111827" stroke-width="1">
-        <circle cx="115" cy="53" r="4.4"/><rect x="109" y="58" width="12" height="18" rx="3"/>
-        <circle cx="135" cy="51" r="4.7" fill="#C41E1A"/><rect x="128" y="56" width="14" height="20" rx="3" fill="#C41E1A"/>
-        <circle cx="155" cy="53" r="4.4" fill="#1B4F9C"/><rect x="149" y="58" width="12" height="18" rx="3" fill="#1B4F9C"/>
-        <circle cx="174" cy="52" r="4.4"/><rect x="168" y="57" width="12" height="19" rx="3"/>
-      </g>
-      <!-- Uniform Top Banner (Asia = Hijau) -->
-      <rect x="6" y="6" width="140" height="20" fill="${REGIONS.AS.color}" stroke="#FFFFFF" stroke-width="1.3"/>
-      <text x="76" y="20.2" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="13.4" font-weight="800" fill="#FFFFFF">DHAKA: 80+ SHUT</text>
-      <!-- Uniform Bottom-Left Source Ribbon -->
-      <rect x="0" y="62" width="104" height="14" fill="#111827"/>
-      <text x="52" y="72" text-anchor="middle" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="8.4" font-weight="700" fill="#FFFFFF">Savar–Ashulia · Press</text>
-    </svg>`,
-  },
 ];
 
 // 22 Briefs (#14 - #35) across 2 clean wide columns (11 + 11, all single-line)
@@ -658,23 +676,23 @@ const BRIEFS_COLS = [
   [
     { id: 14, reg: 'EU', lead: 'Kryvyi Rih', text: 'Russian missile kills 2, wounds ~60', src: 'AP' },
     { id: 15, reg: 'EU', lead: 'Kyiv', text: 'Overnight missiles & drones spark fires', src: 'Reuters' },
-    { id: 16, reg: 'EU', lead: 'Finland', text: 'Curbs Baltic airspace after ship strike', src: 'Yle' },
-    { id: 17, reg: 'EU', lead: 'Kyiv–UK', text: 'UK defense chief meets Zelenskyy on drones', src: 'AFP' },
-    { id: 18, reg: 'EU', lead: 'Vatican', text: 'Pope Leo XIV marks CNEWA centenary', src: 'Vatican' },
+    { id: 16, reg: 'EU', lead: 'Copenhagen', text: 'Denmark expels Russian attaché over plot', src: 'AJ' },
+    { id: 17, reg: 'EU', lead: 'Geneva', text: 'UN delegates agree on "killer robots" talks', src: 'AJ' },
+    { id: 18, reg: 'EU', lead: 'Finland', text: 'Curbs Baltic airspace after ship strike', src: 'Yle' },
     { id: 19, reg: 'EU', lead: 'Turin', text: 'Alcaraz reaches ATP Finals title match', src: 'ATP' },
-    { id: 20, reg: 'ME', lead: 'Hormuz', text: 'Three oil tankers reported struck nearby', src: 'Reuters' },
-    { id: 21, reg: 'ME', lead: 'Iran', text: 'IRGC unveils underground missile launcher', src: 'IRIB' },
+    { id: 20, reg: 'ME', lead: 'Bahrain', text: 'Iranian strike sparks industrial site fire', src: 'AJ' },
+    { id: 21, reg: 'ME', lead: 'Hormuz', text: 'Iran claims US drone downed; tankers hit', src: 'Reuters' },
     { id: 22, reg: 'ME', lead: 'Gaza', text: 'Israeli strikes kill 4, 3 in food truck', src: 'AP' },
     { id: 23, reg: 'ME', lead: 'Basra', text: 'Power-plant gas fire kills 4, hurts 35', src: 'INA' },
-    { id: 24, reg: 'AS', lead: 'Japan–Saudi', text: 'Oil reserve deal triples to 24m bbl', src: 'Kyodo' },
+    { id: 24, reg: 'AS', lead: 'Banda Sea', text: 'M6.8 deep quake hits Indonesia; no tsunami', src: 'USGS' },
   ],
   [
-    { id: 25, reg: 'AS', lead: 'India', text: 'Google pledges $5m AI grant to IIT', src: 'PTI' },
-    { id: 26, reg: 'AS', lead: 'China–S’pore', text: 'Li Qiang, PM Wong push FTA 4.0', src: 'CNA' },
-    { id: 27, reg: 'AS', lead: 'S. Korea', text: '111 caught with smart gear in Suneung', src: 'Yonhap' },
-    { id: 28, reg: 'AM', lead: 'US–Canada', text: 'Leaked Hegseth memo curbs defense ties', src: 'Reuters' },
-    { id: 29, reg: 'AM', lead: 'Las Vegas F1', text: 'Verstappen gets pole on grid penalty', src: 'F1' },
-    { id: 30, reg: 'AM', lead: 'Dominican Rep.', text: 'LatAm summit closes in Cap Cana', src: 'EFE' },
+    { id: 25, reg: 'AS', lead: 'Dhaka', text: '80+ garment plants shut in wage sit-ins', src: 'Press' },
+    { id: 26, reg: 'AS', lead: 'Japan–Saudi', text: 'Oil reserve deal triples to 24m bbl', src: 'Kyodo' },
+    { id: 27, reg: 'AS', lead: 'India', text: 'Google pledges $5m AI grant to IIT', src: 'PTI' },
+    { id: 28, reg: 'AS', lead: 'China–S’pore', text: 'Li Qiang, PM Wong push FTA 4.0', src: 'CNA' },
+    { id: 29, reg: 'AM', lead: 'Washington', text: 'Trump vows tax on overseas AI data sites', src: 'Guardian' },
+    { id: 30, reg: 'AM', lead: 'Las Vegas F1', text: 'Verstappen gets pole on grid penalty', src: 'F1' },
     { id: 31, reg: 'AM', lead: 'Brazil', text: '16-yr-old Silva beats Canada in BJK Cup', src: 'ITF' },
     { id: 32, reg: 'AF', lead: 'Ethiopia', text: 'China–Africa poverty forum opens', src: 'Xinhua' },
     { id: 33, reg: 'AF', lead: 'Somalia', text: 'Moves vaccine hub home after 30 yrs', src: 'UNICEF' },
@@ -798,27 +816,27 @@ const INLAND_SEAS = [
 ];
 
 const MAP_PINS = [
-  { id: 29, reg: 'AM', pos: lonLatToXY(-116, 38) },  // Las Vegas
-  { id: 28, reg: 'AM', pos: lonLatToXY(-77, 42) },   // US-Canada
-  { id: 7, reg: 'AM', pos: lonLatToXY(-107, 23) },   // Sinaloa
-  { id: 30, reg: 'AM', pos: lonLatToXY(-70, 19) },   // Dominican Rep
-  { id: 6, reg: 'AM', pos: lonLatToXY(-75, -12) },   // Peru
+  { id: 30, reg: 'AM', pos: lonLatToXY(-116, 38) },  // Las Vegas F1
+  { id: 3, reg: 'AM', pos: lonLatToXY(-73, 44) },    // New York / Global Crypto Markets
+  { id: 8, reg: 'AM', pos: lonLatToXY(-84, 34) },    // Washington DC / FBI NCIC
+  { id: 9, reg: 'AM', pos: lonLatToXY(-107, 23) },   // Sinaloa
+  { id: 7, reg: 'AM', pos: lonLatToXY(-75, -12) },   // Peru
   { id: 31, reg: 'AM', pos: lonLatToXY(-48, -22) },  // Brazil
-  { id: 9, reg: 'EU', pos: lonLatToXY(2, 48) },      // Paris / Europe
-  { id: 3, reg: 'EU', pos: lonLatToXY(19, 56) },     // Warsaw / Baltic
+  { id: 11, reg: 'EU', pos: lonLatToXY(2, 48) },     // Paris / Europe
+  { id: 4, reg: 'EU', pos: lonLatToXY(19, 56) },     // Warsaw / Baltic
   { id: 14, reg: 'EU', pos: lonLatToXY(36, 49) },    // Kryvyi Rih / Ukraine
   { id: 1, reg: 'ME', pos: lonLatToXY(31, 36) },     // Antalya
-  { id: 11, reg: 'AF', pos: lonLatToXY(30, 21) },    // Aswan
+  { id: 12, reg: 'AF', pos: lonLatToXY(30, 21) },    // Aswan
   { id: 32, reg: 'AF', pos: lonLatToXY(40, 7) },     // Addis Ababa / Somalia
-  { id: 4, reg: 'ME', pos: lonLatToXY(49, 25) },     // Riyadh / Jizan
-  { id: 25, reg: 'AS', pos: lonLatToXY(75, 20) },    // India
-  { id: 13, reg: 'AS', pos: lonLatToXY(94, 25) },    // Bangladesh
-  { id: 27, reg: 'AS', pos: lonLatToXY(128, 37) },   // South Korea / Japan
-  { id: 5, reg: 'AS', pos: lonLatToXY(106, -6) },    // Indonesia (Jakarta)
-  { id: 8, reg: 'AS', pos: lonLatToXY(126, 9) },     // Davao
-  { id: 10, reg: 'AS', pos: lonLatToXY(132, -8) },   // Banda Sea
+  { id: 5, reg: 'ME', pos: lonLatToXY(49, 25) },     // Riyadh / Jizan
+  { id: 27, reg: 'AS', pos: lonLatToXY(76, 20) },    // India
+  { id: 25, reg: 'AS', pos: lonLatToXY(93, 25) },    // Dhaka
+  { id: 26, reg: 'AS', pos: lonLatToXY(137, 36) },   // Japan
+  { id: 6, reg: 'AS', pos: lonLatToXY(106, -6) },    // Indonesia (Jakarta)
+  { id: 10, reg: 'AS', pos: lonLatToXY(126, 9) },    // Davao
+  { id: 24, reg: 'AS', pos: lonLatToXY(132, -8) },   // Banda Sea
   { id: 34, reg: 'OC', pos: lonLatToXY(145, -36) },  // Melbourne
-  { id: 12, reg: 'OC', pos: lonLatToXY(171, -42) },  // New Zealand / Rugby
+  { id: 13, reg: 'OC', pos: lonLatToXY(171, -42) },  // New Zealand / Rugby
 ];
 
 function buildWorldMapSVG() {
@@ -1204,7 +1222,7 @@ function renderHtml() {
         <span class="masthead-meta">${total} STORIES · 7 REGIONS · EVERY ONE DATED SATURDAY 21 NOVEMBER 2026</span>
       </div>
       <h1 class="masthead-title">Saturday 21 November 2026</h1>
-      <div class="masthead-sub">COP31 stalls into Day 13 overtime · BepiColombo reaches Mercury · Five Houthi missiles downed over Saudi Arabia</div>
+      <div class="masthead-sub">COP31 stalls into Day 13 overtime · BepiColombo reaches Mercury · Bitcoin plunges below $59,000</div>
     </header>
 
     <section class="fig-strip">${figHtml}</section>
