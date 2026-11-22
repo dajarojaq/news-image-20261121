@@ -477,64 +477,192 @@ const BRIEFS_COLS = [
   ],
 ];
 
-// Map pins (x, y in 252x142 world map SVG coordinates: lon -180..180 -> 0..252, lat 80..-60 -> 0..142)
+// Map projection: lon [-172..180] -> [2..252], lat [78..-60] -> [2..140] in 254x144 SVG
 function lonLatToXY(lon, lat) {
-  const x = ((lon + 180) / 360) * 252;
-  const y = ((82 - lat) / 142) * 142;
+  const x = 2 + ((lon + 172) / 352) * 250;
+  const y = 2 + ((78 - lat) / 138) * 138;
   return [x.toFixed(1), y.toFixed(1)];
 }
 
+function polyPath(coords) {
+  return coords
+    .map(([lon, lat], idx) => {
+      const [x, y] = lonLatToXY(lon, lat);
+      return `${idx === 0 ? 'M' : 'L'}${x},${y}`;
+    })
+    .join(' ') + ' Z';
+}
+
+const WORLD_LANDMASSES = [
+  // North America
+  [
+    [-168, 66], [-162, 69], [-156, 71], [-141, 70], [-134, 69], [-125, 70],
+    [-110, 68], [-96, 69], [-88, 66], [-94, 61], [-90, 56], [-80, 51],
+    [-77, 56], [-78, 62], [-70, 61], [-64, 59], [-56, 52], [-61, 47],
+    [-60, 46], [-66, 44], [-70, 42], [-74, 40], [-76, 35], [-81, 30],
+    [-80, 25], [-82, 26], [-83, 29], [-89, 30], [-97, 26], [-96, 20],
+    [-91, 18], [-90, 21], [-87, 21], [-88, 17], [-84, 15], [-83, 10],
+    [-78, 8], [-80, 8], [-85, 10], [-89, 13], [-93, 15], [-98, 16],
+    [-105, 19], [-107, 24], [-112, 29], [-114, 31], [-110, 23], [-113, 27],
+    [-117, 32], [-121, 35], [-124, 40], [-124, 48], [-130, 54], [-137, 59],
+    [-148, 60], [-153, 57], [-162, 55], [-166, 60], [-161, 63], [-166, 65],
+  ],
+  // Baffin Island
+  [[-86, 73], [-75, 72], [-66, 68], [-64, 63], [-74, 63], [-80, 68]],
+  // Victoria Island
+  [[-118, 72], [-104, 72], [-102, 69], [-116, 69]],
+  // Newfoundland
+  [[-59, 51], [-53, 49], [-53, 46], [-59, 47]],
+  // Cuba
+  [[-85, 22], [-79, 23], [-74, 20], [-78, 20], [-83, 21]],
+  // Hispaniola
+  [[-74, 20], [-68, 19], [-69, 18], [-74, 18]],
+  // Greenland
+  [[-56, 75], [-42, 77.5], [-20, 77.5], [-17, 74], [-24, 69], [-35, 66], [-44, 60], [-51, 64], [-53, 70]],
+  // Iceland
+  [[-24, 66], [-14, 66], [-14, 64], [-23, 64]],
+  // South America
+  [
+    [-78, 9], [-73, 12], [-68, 11], [-61, 10], [-52, 4], [-50, 0],
+    [-42, -3], [-35, -6], [-38, -13], [-41, -22], [-48, -26], [-53, -34],
+    [-58, -38], [-64, -42], [-67, -48], [-67, -54], [-71, -55], [-74, -50],
+    [-73, -41], [-71, -30], [-70, -18], [-77, -12], [-81, -5], [-80, 1],
+  ],
+  // Africa
+  [
+    [-6, 36], [3, 37], [11, 37], [11, 33], [20, 32], [25, 31],
+    [32, 31], [34, 27], [38, 20], [43, 12], [51, 12], [49, 5],
+    [41, -2], [40, -10], [35, -20], [33, -26], [28, -33], [19, -35],
+    [15, -26], [12, -16], [12, -6], [9, 4], [2, 6], [-8, 5],
+    [-16, 12], [-17, 16], [-16, 22], [-10, 30],
+  ],
+  // Madagascar
+  [[49, -12], [50, -17], [47, -25], [44, -24], [45, -17]],
+  // Eurasia (continuous Europe + Middle East + Asia)
+  [
+    [-9, 37], [-9, 43], [-2, 43], [-4, 48], [2, 51], [8, 54],
+    [9, 57], [12, 56], [11, 58], [5, 60], [7, 63], [15, 68],
+    [25, 71], [40, 67], [45, 66], [60, 70], [72, 73], [104, 77],
+    [135, 72], [170, 69], [178, 66], [168, 60], [162, 56], [156, 51],
+    [155, 58], [142, 59], [138, 54], [141, 51], [135, 44], [129, 39],
+    [129, 35], [126, 36], [125, 39], [121, 40], [122, 37], [120, 34],
+    [122, 30], [118, 24], [113, 22], [109, 20], [109, 13], [105, 9],
+    [103, 12], [100, 13], [103, 6], [104, 1], [101, 4], [98, 9],
+    [98, 15], [94, 16], [92, 22], [87, 21], [80, 14], [77, 8],
+    [73, 19], [69, 23], [62, 25], [57, 26], [50, 30], [49, 27],
+    [55, 25], [59, 22], [53, 16], [44, 13], [40, 20], [35, 28],
+    [33, 31], [35, 33], [36, 36], [28, 37], [27, 40], [24, 40],
+    [23, 37], [20, 39], [14, 45], [18, 41], [16, 38], [12, 42],
+    [9, 44], [3, 43], [-1, 38], [-5, 36],
+  ],
+  // Great Britain & Ireland
+  [[-5, 50], [-4, 53], [-5, 57], [-2, 58], [-2, 55], [1, 52], [-1, 50]],
+  [[-10, 52], [-9, 55], [-6, 55], [-6, 52]],
+  // Sicily & Sardinia
+  [[12, 38], [15, 38], [15, 36.7]],
+  [[8.2, 41], [9.6, 41], [9.5, 39], [8.3, 39]],
+  // Sri Lanka
+  [[80, 9.5], [81.8, 7.5], [80.5, 6], [79.8, 7.5]],
+  // Japan (Hokkaido + Honshu/Kyushu)
+  [[140, 42], [142, 45], [145, 43], [142, 42]],
+  [[130, 31], [131, 34], [136, 35], [141, 38], [141, 41], [138, 39], [134, 35], [130, 33]],
+  // Taiwan
+  [[120.5, 25], [122, 24.5], [121, 22], [120, 23]],
+  // Philippines (Luzon & Mindanao)
+  [[120, 18], [122, 18], [123, 14], [120, 14]],
+  [[122, 8], [126, 9], [126, 6], [123, 6]],
+  // Sumatra, Java, Borneo, Sulawesi, New Guinea
+  [[95, 5.5], [99, 3], [105, -5], [103, -6], [98, 0]],
+  [[105, -6.2], [114, -7.8], [114, -8.5], [106, -7.2]],
+  [[109, 1], [115, 6], [118, 5], [117, -3], [111, -3]],
+  [[119, 1], [125, 1], [122, -4], [119, -5]],
+  [[131, -1.5], [141, -3], [150, -10], [144, -8], [136, -5]],
+  // Australia & Tasmania
+  [
+    [114, -22], [122, -17], [130, -12], [136, -12], [137, -15], [141, -16],
+    [142, -11], [146, -17], [153, -26], [150, -37], [141, -38], [136, -35],
+    [129, -32], [118, -35], [115, -34], [114, -27],
+  ],
+  [[145, -41], [148, -41], [147, -43.5], [145.5, -43]],
+  // New Zealand (North & South Islands)
+  [[173, -35], [178, -38], [176, -41], [174, -40]],
+  [[173, -41], [174, -43], [169, -46.5], [167, -45.5], [171, -42]],
+];
+
+const INLAND_SEAS = [
+  // Baltic Sea
+  [[11, 56], [13, 55], [16, 54], [20, 55], [22, 57], [24, 59], [29, 60], [24, 60], [21, 61], [21, 65], [18, 63], [17, 59], [14, 56]],
+  // Black Sea
+  [[28, 41], [28, 44], [32, 46], [34, 44.5], [37, 45], [41, 42], [38, 41], [33, 42]],
+  // Caspian Sea
+  [[47, 46], [52, 46], [54, 42], [53, 37], [49, 37], [48, 41]],
+];
+
 const MAP_PINS = [
-  { id: 7, reg: 'AM', pos: lonLatToXY(-108, 25) },   // Sinaloa Mexico
-  { id: 6, reg: 'AM', pos: lonLatToXY(-76, -11) },   // Peru
-  { id: 9, reg: 'EU', pos: lonLatToXY(2, 47) },      // Paris / Western Europe
-  { id: 3, reg: 'EU', pos: lonLatToXY(22, 57) },     // Warsaw / Baltic
-  { id: 1, reg: 'ME', pos: lonLatToXY(32, 38) },     // Antalya Turkey
-  { id: 11, reg: 'AF', pos: lonLatToXY(29, 17) },    // Aswan Egypt
-  { id: 4, reg: 'ME', pos: lonLatToXY(53, 24) },     // Riyadh
+  { id: 7, reg: 'AM', pos: lonLatToXY(-107, 25) },   // Sinaloa Mexico
+  { id: 6, reg: 'AM', pos: lonLatToXY(-75, -11) },   // Peru
+  { id: 9, reg: 'EU', pos: lonLatToXY(2, 48) },      // Paris / Western Europe
+  { id: 3, reg: 'EU', pos: lonLatToXY(21, 54) },     // Warsaw / Baltic
+  { id: 1, reg: 'ME', pos: lonLatToXY(31, 37) },     // Antalya Turkey
+  { id: 11, reg: 'AF', pos: lonLatToXY(31, 21) },    // Aswan Egypt
+  { id: 4, reg: 'ME', pos: lonLatToXY(48, 24) },     // Riyadh
   { id: 13, reg: 'AS', pos: lonLatToXY(90, 24) },    // Bangladesh
-  { id: 5, reg: 'AS', pos: lonLatToXY(106, -6) },    // Indonesia (Jakarta)
-  { id: 8, reg: 'AS', pos: lonLatToXY(126, 9) },     // Davao Philippines
-  { id: 10, reg: 'AS', pos: lonLatToXY(132, -8) },   // Banda Sea
-  { id: 12, reg: 'OC', pos: lonLatToXY(168, -40) },  // Oceania / All Blacks & Wallabies
+  { id: 5, reg: 'AS', pos: lonLatToXY(107, -6) },    // Indonesia (Jakarta)
+  { id: 8, reg: 'AS', pos: lonLatToXY(126, 7) },     // Davao Philippines
+  { id: 10, reg: 'AS', pos: lonLatToXY(131, -8) },   // Banda Sea
+  { id: 12, reg: 'OC', pos: lonLatToXY(171, -41) },  // Oceania / All Blacks & Wallabies
 ];
 
 function buildWorldMapSVG() {
+  const landSvg = WORLD_LANDMASSES.map(
+    (poly) => `<path d="${polyPath(poly)}" fill="#DBD2BE" stroke="#8F8570" stroke-width="0.65" stroke-linejoin="round"/>`
+  ).join('\n');
+
+  const seasSvg = INLAND_SEAS.map(
+    (poly) => `<path d="${polyPath(poly)}" fill="#E1EDF5" stroke="#8F8570" stroke-width="0.55" stroke-linejoin="round"/>`
+  ).join('\n');
+
+  const gratLons = [-120, -60, 0, 60, 120];
+  const gratLats = [60, 30, -30];
+  const gratLines = [
+    ...gratLons.map((lon) => {
+      const [x] = lonLatToXY(lon, 0);
+      return `<line x1="${x}" y1="2" x2="${x}" y2="140" stroke="#CFE0EC" stroke-width="0.45"/>`;
+    }),
+    ...gratLats.map((lat) => {
+      const [, y] = lonLatToXY(0, lat);
+      return `<line x1="2" y1="${y}" x2="252" y2="${y}" stroke="#CFE0EC" stroke-width="0.45"/>`;
+    }),
+  ].join('\n');
+  const [, eqY] = lonLatToXY(0, 0);
+  const [pmX] = lonLatToXY(0, 0);
+
   const pinsSvg = MAP_PINS.map(({ id, reg, pos }) => {
     const color = REGIONS[reg].color;
     return `<g>
-      <circle cx="${pos[0]}" cy="${pos[1]}" r="6.8" fill="${color}" stroke="#FFFDF7" stroke-width="1.2"/>
-      <text x="${pos[0]}" y="${(parseFloat(pos[1]) + 2.4).toFixed(1)}" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="6.8" font-weight="800" fill="#FFFFFF">${id}</text>
+      <circle cx="${pos[0]}" cy="${pos[1]}" r="5.6" fill="${color}" stroke="#FFFDF7" stroke-width="1.15"/>
+      <text x="${pos[0]}" y="${(parseFloat(pos[1]) + 2.1).toFixed(1)}" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="6.1" font-weight="800" fill="#FFFFFF">${id}</text>
     </g>`;
   }).join('\n');
 
-  return `<svg viewBox="0 0 252 142" width="252" height="142" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1px solid #C8BFA8;border-radius:3px;background:#EBF2F7;">
-    <!-- Graticule -->
-    <line x1="0" y1="82" x2="252" y2="82" stroke="#D5E3EC" stroke-width="0.7" stroke-dasharray="2 2"/>
-    <line x1="126" y1="0" x2="126" y2="142" stroke="#D5E3EC" stroke-width="0.7" stroke-dasharray="2 2"/>
-    <!-- North America -->
-    <path d="M12 24 L42 18 L76 20 L84 32 L66 44 L56 54 L46 66 L36 62 L24 44 Z" fill="#D5CCB7" stroke="#AFA58E" stroke-width="0.6"/>
-    <!-- Greenland -->
-    <path d="M84 12 L106 10 L102 26 L86 24 Z" fill="#D5CCB7" stroke="#AFA58E" stroke-width="0.6"/>
-    <!-- South America -->
-    <path d="M56 72 L78 72 L90 88 L82 110 L70 128 L64 114 L56 90 Z" fill="#D5CCB7" stroke="#AFA58E" stroke-width="0.6"/>
-    <!-- Europe -->
-    <path d="M114 26 L142 18 L156 26 L148 44 L126 48 L112 42 Z" fill="#D5CCB7" stroke="#AFA58E" stroke-width="0.6"/>
-    <!-- Africa -->
-    <path d="M114 52 L144 50 L158 66 L150 92 L138 110 L128 96 L116 74 Z" fill="#D5CCB7" stroke="#AFA58E" stroke-width="0.6"/>
-    <!-- Asia -->
-    <path d="M148 22 L198 16 L232 28 L224 48 L206 62 L188 74 L170 64 L152 54 Z" fill="#D5CCB7" stroke="#AFA58E" stroke-width="0.6"/>
-    <!-- Maritime SE Asia -->
-    <path d="M196 76 L216 78 L218 86 L196 84 Z" fill="#D5CCB7" stroke="#AFA58E" stroke-width="0.6"/>
-    <path d="M210 66 L218 68 L216 75 L209 73 Z" fill="#D5CCB7" stroke="#AFA58E" stroke-width="0.6"/>
-    <!-- Australia & NZ -->
-    <path d="M204 96 L230 96 L232 114 L206 114 Z" fill="#D5CCB7" stroke="#AFA58E" stroke-width="0.6"/>
-    <path d="M238 112 L245 108 L244 120 L237 122 Z" fill="#D5CCB7" stroke="#AFA58E" stroke-width="0.6"/>
+  return `<svg viewBox="0 0 254 144" width="254" height="144" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1px solid #C8BFA8;border-radius:3px;">
+    <defs>
+      <linearGradient id="oceanBg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ECF3F8"/>
+        <stop offset="100%" stop-color="#DFECF4"/>
+      </linearGradient>
+    </defs>
+    <rect width="254" height="144" fill="url(#oceanBg)"/>
+    ${gratLines}
+    <line x1="2" y1="${eqY}" x2="252" y2="${eqY}" stroke="#BDD3E3" stroke-width="0.65" stroke-dasharray="2.5 2"/>
+    <line x1="${pmX}" y1="2" x2="${pmX}" y2="140" stroke="#BDD3E3" stroke-width="0.55" stroke-dasharray="2.5 2"/>
+    ${landSvg}
+    ${seasSvg}
     <!-- Space inset -->
-    <rect x="6" y="114" width="60" height="22" rx="3" fill="#141F3D" stroke="#6E8EE0" stroke-width="0.8"/>
-    <circle cx="17" cy="125" r="6" fill="#3B4D8A" stroke="#FFF" stroke-width="0.9"/>
-    <text x="17" y="127.4" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="6.8" font-weight="800" fill="#FFF">2</text>
-    <text x="45" y="127.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="6.5" font-weight="800" fill="#DDE8FF">MERCURY</text>
+    <rect x="5" y="116" width="58" height="21" rx="3" fill="#141F3D" stroke="#6E8EE0" stroke-width="0.8"/>
+    <circle cx="15.5" cy="126.5" r="5.4" fill="#3B4D8A" stroke="#FFF" stroke-width="0.9"/>
+    <text x="15.5" y="128.6" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="6.2" font-weight="800" fill="#FFF">2</text>
+    <text x="42.5" y="128.8" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="6.2" font-weight="800" fill="#DDE8FF">MERCURY</text>
     ${pinsSvg}
   </svg>`;
 }
