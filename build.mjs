@@ -155,6 +155,9 @@ const LEAD_CARDS = [
       <path d="M145 0 L320 0 L320 56 C270 58, 220 48, 175 46 C155 44, 145 25, 145 0 Z" fill="#8DB3DC"/>
       <!-- Landmasses -->
       <path d="M0 0 L150 0 C150 30, 165 44, 195 48 L320 54 L320 112 L0 112 Z" fill="#EAE3D2" stroke="#B7AF9C" stroke-width="1"/>
+      <!-- Map region labels -->
+      <text x="174" y="21" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="6.8" font-weight="700" letter-spacing="0.06em" fill="#2B527E" opacity="0.85">BALTIC SEA</text>
+      <text x="31" y="66" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="7" font-weight="700" letter-spacing="0.08em" fill="#6F6858" opacity="0.85">POLAND</text>
       <!-- Border line Poland / East -->
       <path d="M138 56 L132 108" stroke="#C92A2A" stroke-width="1.6" stroke-dasharray="4 3"/>
       <!-- NATO Shield in Warsaw -->
@@ -175,7 +178,7 @@ const LEAD_CARDS = [
         <polygon points="6,1 10,-9 14,1" fill="#F03E3E"/>
         <polygon points="8,1 11,-5 13,1" fill="#FCC419"/>
       </g>
-      <text x="234" y="54" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="8" font-weight="800" fill="#171C23">SPARTA II · FINLAND GULF</text>
+      <text x="234" y="54" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="8" font-weight="800" fill="#171C23">SPARTA II · GULF OF FINLAND</text>
       <!-- Callout pills -->
       <rect x="10" y="9" width="96" height="17" rx="3" fill="#1D4D9B"/>
       <text x="58" y="20.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="8.5" font-weight="800" fill="#FFFFFF">NATO · WARSAW</text>
@@ -487,8 +490,8 @@ const MAP_PINS = [
   { id: 9, reg: 'EU', pos: lonLatToXY(2, 47) },      // Paris / Western Europe
   { id: 3, reg: 'EU', pos: lonLatToXY(22, 57) },     // Warsaw / Baltic
   { id: 1, reg: 'ME', pos: lonLatToXY(32, 38) },     // Antalya Turkey
-  { id: 11, reg: 'AF', pos: lonLatToXY(31, 20) },    // Aswan Egypt
-  { id: 4, reg: 'ME', pos: lonLatToXY(50, 24) },     // Riyadh
+  { id: 11, reg: 'AF', pos: lonLatToXY(29, 17) },    // Aswan Egypt
+  { id: 4, reg: 'ME', pos: lonLatToXY(53, 24) },     // Riyadh
   { id: 13, reg: 'AS', pos: lonLatToXY(90, 24) },    // Bangladesh
   { id: 5, reg: 'AS', pos: lonLatToXY(106, -6) },    // Indonesia (Jakarta)
   { id: 8, reg: 'AS', pos: lonLatToXY(126, 9) },     // Davao Philippines
@@ -636,6 +639,7 @@ function renderHtml() {
   .masthead-meta { color: #171C23; }
   .masthead-title {
     font-family: 'Playfair Display', Georgia, Cambria, serif;
+    font-variant-numeric: lining-nums;
     font-size: 47px;
     font-weight: 900;
     line-height: 1.03;
@@ -731,6 +735,7 @@ function renderHtml() {
   .num-item.first { border-left: none; }
   .num-val {
     font-family: 'Playfair Display', Georgia, Cambria, serif;
+    font-variant-numeric: lining-nums;
     font-size: 15.5px;
     font-weight: 900;
     color: #0E1B2B;
@@ -812,6 +817,7 @@ function renderHtml() {
   }
   .lead-h2 {
     font-family: 'Playfair Display', Georgia, Cambria, serif;
+    font-variant-numeric: lining-nums;
     font-size: 16px;
     font-weight: 800;
     line-height: 1.14;
@@ -846,6 +852,7 @@ function renderHtml() {
   .mid-meta { margin-top: 3px; }
   .mid-h3 {
     font-family: 'Playfair Display', Georgia, Cambria, serif;
+    font-variant-numeric: lining-nums;
     font-size: 11.4px;
     font-weight: 800;
     line-height: 1.13;
